@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sass/style.scss">
+    <title>Афиша</title>
+</head>
+
+<body>
+    <div class="glav_cont">
+        <header class="header"></header>
+        <h1>График премьер фильмов</h1>
+        <p class="p">
+            Также как дальнейшее развитие различных форм деятельности, в своём классическом представлении, допускает
+            внедрение первоочередных требований. Современные технологии достигли такого уровня, что внедрение
+            современных методик предполагает независимые способы реализации стандартных подходов. Сторонники
+            тоталитаризма в науке могут быть объявлены нарушающими общечеловеческие нормы этики и морали.
+        </p>
+        <div class="upcoming">
+
+        </div>
+    </div>
+    <div class="modal-bg"></div>
+    <div class="modal search-modal">
+        <div class="search">
+            <div class="search-modal__input">
+                <input class="search_inp" type="text" name="name">
+                <div class="input-icons">
+                    <img src="/img/equalizer.svg" alt="equalizer">
+                    <img src="/img/input-search.svg" alt="icon-search" width="40px" height="40px" class="search">
+                </div>
+            </div>
+            <div class="close-modal">
+                <img src="/img/close.svg" alt="">
+            </div>
+        </div>
+        <div class="film-wrapper">
+            <h2>Фильмы</h2>
+            <div class="films">
+
+            </div>
+        </div>
+        <div class="person-wrapper">
+            <h2>Актеры</h2>
+            <div class="person">
+
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/main"></script>
+    <script type="module" src="/modules/ui"></script>
+    <script type="module">
+        import { getData } from "/modules/http.request";
+        let kinoCont = document.querySelector(".upcoming");
+        let body = document.querySelector('body')
+        getData(`movie/upcoming`)
+            .then(res => reload(res.data.results))
+
+        function reload(data) {
+            for (let item of data) {
+                if (item.release_date >= '2023-01-01') {
+                    let kinocont = document.createElement("div");
+                    let kino = document.createElement("div");
+                    let hover = document.createElement("div");
+                    let hoverBtn = document.createElement("button");
+                    let infoKino = document.createElement("div");
+                    let rayting = document.createElement("div");
+                    let kinoName = document.createElement("p");
+                    let kinoType = document.createElement("p");
+                    let img = document.createElement("img");
+
+                    if (item.vote_average < 5) {
+                        rayting.style.background = 'red'
+                    }
+
+                    rayting.innerHTML = item.vote_average;
+                    kinoName.innerHTML = item.title;
+                    kinoType.innerHTML = item.release_date
+                    hoverBtn.innerHTML = "Карточка фильма";
+
+                    kinocont.classList.add("kino-cont");
+                    kino.classList.add("kino");
+                    hover.classList.add("hover");
+                    hoverBtn.classList.add("info-card");
+                    rayting.classList.add("rayting");
+                    kinoType.classList.add("type-kino");
+
+                    kino.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.poster_path})`;
+
+                    hoverBtn.onclick = () => {
+                        location.assign('/pages/trailer.html?id=' + item.id)
+                    }
+
+                    kinocont.onclick = () => {
+                        body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
+                    }
+
+                    kinoCont.append(kinocont);
+                    infoKino.append(hoverBtn);
+                    kinocont.append(kino, kinoName, kinoType);
+                    hover.append(infoKino);
+                    kino.append(rayting, hover);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
