@@ -18,6 +18,10 @@ body {
         line-height: 83px;
         color: white;
     }
+
+    li {
+        list-style-type: none;
+    }
 }
 
 .glav_cont {
@@ -31,10 +35,6 @@ body {
         line-height: 168.7%;
         color: #FFFFFF;
         margin-top: 20px;
-    }
-
-    li {
-        list-style-type: none;
     }
 }
 
@@ -330,12 +330,11 @@ header {
     }
 }
 
-.footer_cont {
+.bottom {
     background: #151A26;
-    height: 2063px;
 
     .top {
-        margin: 30px 50px;
+        margin: 0px 50px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -348,7 +347,147 @@ header {
             line-height: 22px;
         }
     }
+
 }
+
+.footer_cont {
+    background: #151A26;
+    height: 700px;
+    padding: 50px 0px;
+
+    .center {
+        margin-left: 6%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 15px;
+        width: 1200px;
+        height: 450px;
+        background-image: url("../img/fon.png");
+        border-radius: 15px;
+        padding-top: 60px;
+
+        h1 {
+            font-weight: 900;
+            font-size: 50px;
+            line-height: 64px;
+            color: #FFFFFF;
+        }
+
+        .endNews {
+            width: 704px;
+            height: 56px;
+            font-weight: 500;
+            font-size: 22px;
+            line-height: 140.2%;
+            color: #FFFFFF;
+            text-align: center;
+        }
+
+        form {
+            margin-top: 20px;
+
+            & input {
+                width: 400px;
+                height: 70px;
+                background: #FFFFFF;
+                border-radius: 10px;
+                border: none;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 166.5%;
+                padding: 25px;
+            }
+
+            & button {
+                width: 150px;
+                height: 71px;
+                background: #F2F60F;
+                color: black;
+                border-radius: 10px;
+                border: none;
+                font-weight: 700;
+                font-size: 16px;
+                line-height: 166.5%;
+                margin-left: 5px;
+            }
+        }
+
+        .sogl {
+            display: flex;
+            align-items: center;
+
+            input {
+                color: #F2F60F;
+            }
+
+            p {
+                font-weight: 400;
+                font-size: 17px;
+                line-height: 140.2%;
+                color: #FFFFFF;
+                margin-left: 8px;
+
+                span {
+                    color: #F2F60F;
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .fot_bot {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 30px;
+        gap: 20px;
+
+        img {
+            width: 250px;
+            height: 35px;
+        }
+
+        .cent ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 21px;
+            margin-top: 8px;
+
+            li a {
+                font-weight: 700;
+                font-size: 17px;
+                line-height: 21px;
+                text-decoration: none;
+                color: white;
+
+                &:hover {
+                    color: #3657CB;
+                }
+            }
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 119%;
+            color: rgba(227, 230, 240, 0.72);
+        }
+
+        a {
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 119%;
+            // text-decoration-line: underline;
+            color: rgba(227, 230, 240, 0.72);
+        }
+    }
+}
+
 
 
 .modal-bg {
@@ -586,4 +725,19 @@ header {
 
 .active {
     color: white;
+}
+
+.height {
+    display: flex;
+    gap: 50px;
+    margin: 50px 50px;
+
+    .img {
+
+        img {
+            width: 404px;
+            height: 559px;
+            border-radius: 15px;
+        }
+    }
 }

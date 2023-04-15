@@ -7,16 +7,15 @@ const movie_id = location.search.split("=").at(-1);
 
 //     iframe.src = `https://www.youtube.com/embed/${video.key}`;
 // });
-let left = document.querySelector('.l')
-// getData(`movie/${movie_id}`)
-//     .then(res => film(res.data))
 
-// function film(data) {
-//     data.forEach((item) => {
-//         let img = document.createElement('img')
+// let left = document.querySelector('.img')
+getData(`movie/${movie_id}`)
+    .then(res => film(res.data))
+    // .then(res => console.log(res.data))
 
-//         img.src = `url(${import.meta.env.VITE_IMG_URL}${elem.poster_path})`;
-//         lo
-//         left.append(img)
-//     });
-// }
+function film(data) {
+    data.forEach((item) => {
+
+        img.src = `${import.meta.env.VITE_IMG_URL}${item.profile_path}`
+    });
+}

@@ -1,11 +1,21 @@
-import { getData } from "/modules/http.request";
+import { getData, searchData } from "/modules/http.request";
 let kinoCont = document.querySelector(".kino-container");
 let body = document.querySelector('body')
 let films = document.querySelector(".films");
 let person = document.querySelector(".person");
+let search_inp = document.querySelector('.search_inp')
 
 getData(`movie/popular`)
     .then(res => movie(res.data.results))
+
+search_inp.oninput = () => {
+    searchData(`search/movie`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
+        .then(res => searchMovie(res.data.results))
+
+    searchData(`search/person`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
+        .then(res => searchPerson(res.data.results))
+}
+
 
 export function movie(arr) {
     arr.forEach((elem) => {
