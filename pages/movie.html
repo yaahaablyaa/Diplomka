@@ -8,30 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/sass/style.scss">
     <style>
-        iframe {
-            margin-top: 50px;
-        }
     </style>
     <title>Трейлер</title>
 </head>
 
 <body>
+    <div class="blur"></div>
     <div class="glav_cont">
         <header class="header"></header>
         <div class="movie">
-            <div class="height">
-                <div class="img">
-                    <img src="/img/image 1.png" alt="">
-                    
-                </div>
-                <div class="right">
-                    <h1 class="movie_name">Человек мравей и Оса</h1>
-                    <h2 class="org_name">Ant-Man and Wasp</h2>
-                    <p>Двое борцов за свободу отбывают срок в одной из самых строгих тюрем мира — в «Претории». Вместе с другими узниками они планируют дерзкий и опасный побег. Но придумать план — это только первый шаг. Шаг второй — реализация плана.</p>
-                </div>
-            </div>
+            
         </div>
-        <iframe width="1270" height="700" title="" frameborder="0"
+        <div class="top">
+            <h1>Трейлер фильма</h1>
+            <a class="all_trailers" href="#">Все Трейлеры →</a>
+        </div>
+        <iframe class="movie_trailer" width="1270" height="600" title="" frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
         </iframe>
@@ -60,13 +52,10 @@
         </div>
     </div>
     <footer class="footer_cont"></footer>
-    <!-- <div>
-        <canvas style="width: 52px; height: 52px;" id="myChart"></canvas>
-    </div> -->
     <script type="module" src="/main"></script>
     <script type="module" src="/modules/ui"></script>
     <script type="module" src="/modules/trailer"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> -->
+    <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>

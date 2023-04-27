@@ -1,4 +1,4 @@
-import { header,  footer } from "/modules/header&footer"
+import { header, footer } from "/modules/header&footer"
 import { getData, searchData } from "/modules/http.request";
 let head = document.querySelector('.header')
 let tr = document.querySelector('.tr')
@@ -23,5 +23,4 @@ const btnUp = {
         }
     }
 }
-
 btnUp.addEventListener();

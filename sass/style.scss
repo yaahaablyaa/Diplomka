@@ -8,9 +8,18 @@
 body {
     background-image: url("/img/body-bg.png");
     background-color: #1E2538;
-    height: 660px;
+    position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
+
+    .blur {
+        position: absolute;
+        background: linear-gradient(360deg, #1E2538 0%, transparent);
+        width: 100%;
+        height: 500px;
+        margin-top: 270px;
+        z-index: -1;
+    }
 
     h1 {
         font-weight: 900;
@@ -24,22 +33,19 @@ body {
     }
 }
 
-.glav_cont {
-    margin: 30px 48px;
-
-    .p {
-        width: 800px;
-        height: 121px;
-        font-weight: 500;
-        font-size: 18px;
-        line-height: 168.7%;
-        color: #FFFFFF;
-        margin-top: 20px;
-    }
+p {    
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 168.7%;
+    color: #FFFFFF;
 }
 
 body::-webkit-scrollbar {
     width: 0 !important
+}
+
+.glav_cont {
+    padding: 30px 40px;
 }
 
 header {
@@ -50,6 +56,13 @@ header {
         display: flex;
         flex-direction: column;
         gap: 10px;
+
+        .logo {
+
+            &:hover {
+                scale: .95;
+            }
+        }
     }
 
     .center ul {
@@ -174,6 +187,22 @@ header {
     gap: 40px;
 }
 
+.tv {
+    width: 100%;
+    margin: 63px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.popul_f {
+    width: 100%;
+    margin: 63px auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
 .upcoming {
     width: 100%;
     margin: 63px auto;
@@ -261,7 +290,7 @@ header {
     background: #100F14;
     position: sticky;
     top: 280px;
-    margin-left: 100%;
+    margin-left: 97%;
     border-radius: 10px;
     z-index: 1;
     opacity: 1;
@@ -270,6 +299,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: -40px;
 
     &:active {
         scale: 0.8;
@@ -307,20 +337,6 @@ header {
 .trailers {
     margin-top: 54px;
 
-    .top {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        .all_trailers {
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 27px;
-            text-decoration: none;
-            color: #FFFFFF;
-        }
-    }
-
     .trailer {
         margin-top: 30px;
 
@@ -328,7 +344,43 @@ header {
             border-radius: 15px;
         }
     }
+
+    .trailer_bot {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+
+        .left {
+            display: flex;
+            align-items: baseline;
+            gap: 30px;
+
+            h2 {
+                font-weight: 900;
+                font-size: 45px;
+                line-height: 57px;
+                color: #FFFFFF
+            }
+        }
+
+        .likes {
+            gap: 10px;
+
+            button {
+                height: 58px;
+                background: #1B2133;
+                border-radius: 10px;
+                border: none;
+
+                &:hover {
+                    border: 1px solid #4bcb36;
+                }
+            }
+        }
+    }
 }
+
 
 .bottom {
     background: #151A26;
@@ -352,20 +404,23 @@ header {
 
 .footer_cont {
     background: #151A26;
-    height: 700px;
     padding: 50px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
 
     .center {
-        margin-left: 6%;
         display: flex;
+        justify-content: center;
         align-items: center;
         flex-direction: column;
         gap: 15px;
-        width: 1200px;
+        width: 1000px;
         height: 450px;
         background-image: url("../img/fon.png");
         border-radius: 15px;
-        padding-top: 60px;
 
         h1 {
             font-weight: 900;
@@ -482,7 +537,6 @@ header {
             font-weight: 400;
             font-size: 15px;
             line-height: 119%;
-            // text-decoration-line: underline;
             color: rgba(227, 230, 240, 0.72);
         }
     }
@@ -492,7 +546,8 @@ header {
 
 .modal-bg {
     display: none;
-    position: absolute;
+    position: fixed;
+    overflow-y: hidden;
     width: 100%;
     height: 1000px;
     top: 0;
@@ -513,7 +568,7 @@ header {
 
 .search-modal {
     display: none;
-    position: absolute;
+    position: fixed;
 
     .search {
         display: flex;
@@ -581,15 +636,15 @@ header {
             border-radius: 10px;
             background-color: rgba(30, 37, 56, 1);
             margin-top: 10px;
-            height: 100px;
+            height: 120px;
 
             &:active {
                 scale: 0.99;
             }
 
             img {
-                width: 60px;
-                height: 80px;
+                width: 80px;
+                height: 100px;
                 border-radius: 5px;
             }
 
@@ -602,14 +657,6 @@ header {
                     font-size: 20px;
                     line-height: 25px;
                     color: #FFFFFF;
-                }
-
-                p {
-                    font-weight: 500;
-                    font-size: 14px;
-                    line-height: 17px;
-                    color: rgba(255, 255, 255, 0.7);
-                    margin-top: 5px;
                 }
 
                 span {
@@ -645,15 +692,15 @@ header {
         border-radius: 10px;
         background-color: rgb(30, 37, 56);
         margin-top: 10px;
-        height: 100px;
+        height: 120px;
 
         &:active {
             scale: 0.99;
         }
 
         .pers_img img {
-            width: 60px;
-            height: 80px;
+            width: 80px;
+            height: 100px;
             border-radius: 5px;
         }
 
@@ -694,7 +741,7 @@ header {
 .films {
     overflow-y: scroll;
     padding-bottom: 10px;
-    height: 230px;
+    height: 245px;
 }
 
 .films {
@@ -710,7 +757,7 @@ header {
 .person {
     overflow-y: scroll;
     padding-bottom: 10px;
-    height: 230px;
+    height: 245px;
 }
 
 .person {
@@ -727,17 +774,174 @@ header {
     color: white;
 }
 
-.height {
-    display: flex;
-    gap: 50px;
-    margin: 50px 50px;
+.cont {
+    margin: 40px 50px;
 
-    .img {
+    .height {
+        display: flex;
+        justify-content: baseline;
+        gap: 50px;
 
-        img {
-            width: 404px;
-            height: 559px;
-            border-radius: 15px;
+        .img {
+
+            img {
+                width: 404px;
+                height: 559px;
+                border-radius: 15px;
+            }
+        }
+
+        .right {
+            margin-top: 35px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            h1 {
+                font-weight: 900;
+                font-size: 65px;
+                line-height: 83px;
+                color: #FFFFFF;
+            }
+
+            h2 {
+                font-weight: 500;
+                font-size: 25px;
+                line-height: 30px;
+                color: #FFFFFF;
+            }
+
+            p {
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 166.5%;
+                color: #FFFFFF;
+            }
+
+            .doghnut {
+                width: 80px;
+                height: 80px;
+
+                .imdb {
+                    width: 90px;
+                    height: 90px;
+                    border: none;
+                }
+            }
+        }
+
+        .btn {
+            display: flex;
+            gap: 50px;
+
+            .show_trailer {
+                width: 260px;
+                height: 71px;
+                border: 2px solid #FFFFFF;
+                border-radius: 10px;
+                background-color: transparent;
+                font-weight: 700;
+                font-size: 18px;
+                line-height: 166.5%;
+                color: #FFFFFF;
+                display: flex;
+                align-content: center;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+
+                img {
+                    padding-top: 5px;
+                }
+            }
         }
     }
+
+    .like {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+
+        .rayting {
+            width: 185px;
+            height: 59px;
+            background: #1B2133;
+            border-radius: 10px;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 17px;
+            color: #57D043;
+        }
+
+        button {
+            width: 59px;
+            height: 59px;
+            background: #1B2133;
+            border-radius: 10px;
+            border: none;
+
+            &:hover {
+                border: 1px solid #4bcb36;
+            }
+        }
+    }
+
+    .movie_info {
+        margin-top: 45px;
+        display: flex;
+        gap: 300px;
+
+        .left_info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 22px;
+            color: rgba(255, 255, 255, 0.9);
+
+            span {
+                color: #F2F60F;
+                text-decoration: underline;
+                display: inline-block;
+                margin-left: 15px;
+            }
+        }
+
+        .right_info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-weight: 800;
+            font-size: 18px;
+            line-height: 22px;
+            color: rgba(255, 255, 255, 0.9);
+
+            span {
+                color: #F2F60F;
+                text-decoration: underline;
+                display: inline-block;
+                margin-left: 15px;
+            }
+        }
+    }
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .all_trailers {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 27px;
+        text-decoration: none;
+        color: #FFFFFF;
+    }
+}
+
+.movie_trailer {
+    margin-top: 50px;
+    border-radius: 10px;
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <link rel="stylesheet" href="/sass/style.scss">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="glav_cont">
+        <header class="header"></header>
+        <div class="poster"></div>
+    </div>
+    <script type="module" src="/main"></script>
+    <script type="module" src="/modules/ui"></script>
+    <script type="module">
+        import { getData } from "/modules/http.request";
+        const person_id = location.search.split("=").at(-1);
+        let poster = document.querySelector('.poster')
+
+
+        getData(`person/${person_id}`)
+            .then(res => person([res.data]))
+
+        function person(data) {
+            console.log(data);
+            for (let item of data) {
+
+                let img = document.createElement('img')
+
+                img.src = `${import.meta.env.VITE_IMG_URL}${item.profile_path}`
+
+                poster.append(img)
+            };
+        }
+            
+    </script>
+</body>
+
+</html>

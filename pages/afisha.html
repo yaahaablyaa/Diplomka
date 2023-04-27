@@ -54,61 +54,6 @@
     </div>
     <script type="module" src="/main"></script>
     <script type="module" src="/modules/ui"></script>
-    <script type="module">
-        import { getData } from "/modules/http.request";
-        let kinoCont = document.querySelector(".upcoming");
-        let body = document.querySelector('body')
-        getData(`movie/upcoming`)
-            .then(res => reload(res.data.results))
-
-        function reload(data) {
-            for (let item of data) {
-                if (item.release_date >= '2023-01-01') {
-                    let kinocont = document.createElement("div");
-                    let kino = document.createElement("div");
-                    let hover = document.createElement("div");
-                    let hoverBtn = document.createElement("button");
-                    let infoKino = document.createElement("div");
-                    let rayting = document.createElement("div");
-                    let kinoName = document.createElement("p");
-                    let kinoType = document.createElement("p");
-                    let img = document.createElement("img");
-
-                    if (item.vote_average < 5) {
-                        rayting.style.background = 'red'
-                    }
-
-                    rayting.innerHTML = item.vote_average;
-                    kinoName.innerHTML = item.title;
-                    kinoType.innerHTML = item.release_date
-                    hoverBtn.innerHTML = "Карточка фильма";
-
-                    kinocont.classList.add("kino-cont");
-                    kino.classList.add("kino");
-                    hover.classList.add("hover");
-                    hoverBtn.classList.add("info-card");
-                    rayting.classList.add("rayting");
-                    kinoType.classList.add("type-kino");
-
-                    kino.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.poster_path})`;
-
-                    hoverBtn.onclick = () => {
-                        location.assign('/pages/trailer.html?id=' + item.id)
-                    }
-
-                    kinocont.onclick = () => {
-                        body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
-                    }
-
-                    kinoCont.append(kinocont);
-                    infoKino.append(hoverBtn);
-                    kinocont.append(kino, kinoName, kinoType);
-                    hover.append(infoKino);
-                    kino.append(rayting, hover);
-                }
-            }
-        }
-    </script>
 </body>
 
 </html>

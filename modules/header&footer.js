@@ -11,6 +11,7 @@ export function header(pl) {
         <li><a href="/pages/afisha.html">Афиша</a></li>
         <li><a href="#">Медиа</a></li>
         <li><a href="#">Фильмы</a></li>
+        <li><a href="/pages/tv.html">Сериалы</a></li>
         <li><a href="#">Актёры</a></li>
         <li><a href="#">Новости</a></li>
         <li><a href="#">Подборки</a></li>
@@ -51,6 +52,7 @@ export function footer(pl) {
         <li><a href="/pages/afisha.html">Афиша</a></li>
         <li><a href="#">Медиа</a></li>
         <li><a href="#">Фильмы</a></li>
+        <li><a href="/pages/tv.html">Сериалы</a></li>
         <li><a href="#">Актёры</a></li>
         <li><a href="#">Новости</a></li>
         <li><a href="#">Подборки</a></li>

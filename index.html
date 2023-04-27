@@ -7,15 +7,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="/sass/style.scss">
+  <link rel="stylesheet" href="/sass/media.scss">
   <title>WePflix</title>
 </head>
 
 <body>
+  <div class="vverx">
+    <img src="/img/naverx.png" alt="">
+  </div>
+  <div class="blur"></div>
   <div class="glav_cont">
     <header class="header"></header>
-    <div class="vverx">
-      <img src="/img/naverx.png" alt="">
-    </div>
     <div class="container">
       <div class="top">
         <h1>Сейчас в Кино</h1>
@@ -47,8 +49,16 @@
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen></iframe>
       </div>
-      <div class="bottom">
-        <h2>Крид 3</h2>
+      <div class="trailer_bot">
+        <div class="left">
+          <h2>Крид 3</h2>
+          <img src="/img/social.svg" alt="">
+        </div>
+
+        <div class="likes">
+          <button><img src="/img/like.svg" alt=""></button>
+          <button><img src="/img/dislike.svg" alt=""></button>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -67,6 +77,7 @@
           </ul>
         </div>
       </div>
+      <div class="popul_f"></div>
     </div>
     <div class="container">
       <div class="top">
@@ -79,6 +90,7 @@
           </ul>
         </div>
       </div>
+      <div class="humans"></div>
     </div>
     <div class="container">
       <div class="top">
@@ -94,8 +106,6 @@
     </div>
   </div>
   <footer class="footer_cont"></footer>
-  
-
   <div class="modal-bg"></div>
   <div class="modal search-modal">
     <div class="search">
@@ -119,26 +129,6 @@
       <div class="person"></div>
     </div>
   </div>
-
-  <!-- <div class="modal auth-modal">
-    <div class="close">
-      <img src="./img/close.svg" alt="close">
-    </div>
-    <h2>Войти</h2>
-    <form name="login-form">
-      <input type="text" name="login" placeholder="Логин, почта или телефон">
-      <input type="password" name="password" placeholder="Ваш пароль">
-      <button class="logi">Войти</button>
-      <button class="reg">Зарегистрироваться</button>
-    </form>
-    <a href="/">Восстановить пароль</a>
-    <div class="socail-apps">
-      <img src="./img/VK.svg" alt="vk">
-      <img src="./img/Facebook.svg" alt="facebook">
-      <img src="./img/Googke.svg" alt="google">
-      <img src="./img/Twitter.svg" alt="twitter">
-    </div>
-  </div> -->
   <script type="module" src="/main"></script>
   <script type="module" src="/modules/ui"></script>
 </body>
