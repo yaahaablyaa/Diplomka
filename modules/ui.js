@@ -6,6 +6,8 @@ let body = document.querySelector('body')
 let films = document.querySelector(".films");
 let popul_f = document.querySelector(".popul_f");
 let person = document.querySelector(".person");
+let humans = document.querySelector('.humans')
+let items = document.querySelector('.items')
 let search_inp = document.querySelector('.search_inp')
 
 getData(`movie/now_playing`)
@@ -19,6 +21,9 @@ getData('/tv/popular')
 
 getData(`movie/upcoming`)
     .then(res => afisha(res.data.results))
+
+getData(`person/popular`)
+    .then(res => popular_person(res.data.results))
 
 search_inp.oninput = () => {
     searchData(`search/multi`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
@@ -197,7 +202,7 @@ export function tv(arr) {
         }
 
         kinocont.onclick = () => {
-            body.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${elem.backdrop_path})`
+            body.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${elem.backdrop_path})`
         }
 
         tvCont.append(kinocont);
@@ -262,3 +267,63 @@ export function searchPerson(data) {
     });
 }
 
+
+function popular_person(data) {
+    for (let item of data.slice(0, 2)) {
+        let human = document.createElement('div')
+        let mesto = document.createElement('div')
+        let name = document.createElement('div')
+        let num = document.createElement('p')
+        let ru_name = document.createElement('h2')
+        let en_name = document.createElement('p')
+        let span = document.createElement('span')
+
+        human.classList.add('human')
+        mesto.classList.add('mesto')
+        name.classList.add('name')
+
+        human.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.profile_path})`;
+        // num.innerHTML = item.
+        ru_name.innerHTML = item.name
+        // en_name.innerHTML = item.
+        // span.innerHTML = item.
+
+        human.onclick = () => {
+            location.assign('/pages/people.html?id=' + item.id)
+        }
+
+        humans.append(human,)
+        human.append(mesto, name)
+        mesto.append(num)
+        name.append(ru_name, en_name, span)
+    }
+
+    for (let item of data.slice(2, 7)) {
+        let ite = document.createElement('div')
+        let name = document.createElement('div')
+        let line = document.createElement('div')
+        let ru_name  = document.createElement('h2')
+        let en_name = document.createElement('p')
+        let span = document.createElement('span')
+        let span2 = document.createElement('span')
+
+        ite.classList.add('item')
+        name.classList.add('name')
+        line.classList.add('line')
+
+        // num.innerHTML = item.
+        ru_name.innerHTML = item.name
+        // en_name.innerHTML = item.
+        // span.innerHTML = item.
+
+        items.append(ite, line)
+        ite.append(name,)
+        name.append(ru_name)
+
+
+        ite.onclick = () => {
+            console.log('click');
+            location.assign('/pages/people.html?id=' + item.id)
+        }
+    }
+}

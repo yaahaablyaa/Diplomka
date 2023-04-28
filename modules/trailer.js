@@ -20,7 +20,7 @@ function film(data) {
         <div class="cont">
             <div class="height">
                 <div class="img">
-                    <img src="${import.meta.env.VITE_IMG_URL}${item.poster_path}" alt="">
+                    <img src="${import.meta.env.VITE_IMG_URL}${item.poster_path}">
                 </div>
                 <div class="right">
                     <h1 class="movie_name">${item.title}</h1>
@@ -31,41 +31,48 @@ function film(data) {
                     <p>${item.overview}</p>
                     <div class="btn">
                         <button class="show_trailer"><img src="/img/play.svg">Показать трейлер</button>
-                        <img src="/img/social.svg" alt="">
+                        <img src="/img/social.svg">
                     </div>
                 </div>
             </div>
             <div class="like">
-                <button><img src="/img/like.svg" alt=""></button>
-                <button><img src="/img/dislike.svg" alt=""></button>
+                <button><img src="/img/like.svg"></button>
+                <button><img src="/img/dislike.svg"></button>
                 <button class="rayting">Рейтинг ожиданий</button>
-                <button><img src="/img/heart.svg"></button>
+                <button><img  class="heart" src="/img/heart.svg"></button>
             </div>
             <div class="movie_info">
                 <div class="left_info">
-                    <p>Дата Релиза:  <span>${item.release_date}</span></p>
-                    <p>Страна:  <span>${item.origin_country}</span></p>
-                    <p>Слоган:  <span>${item.tagline}</span></p>
-                    <p>Время:  <span>${item.runtime}</span></p>
-                    <p>Сборы:  <span>${item.revenue}$</span></p>
-                    <p>Статус:  <span>${item.status}</span></p>
-                    <p>Бюджет:  <span>${item.budget}$</span></p>
+                    <p>Дата Релиза: <span>${item.release_date}</span></p>
+                    <p>Страна: <span>${item.origin_country}</span></p>
+                    <p>Слоган: <span>${item.tagline}</span></p>
+                    <p>Время: <span>${item.runtime}</span></p>
+                    <p>Сборы: <span>${item.revenue}$</span></p>
+                    <p>Статус: <span>${item.status}</span></p>
+                    <p>Бюджет: <span>${item.budget}$</span></p>
                 </div>
                 <div class="right_info">
-                    <p>Жанр:  <span>${item.genres.name}</span></p>
-                    <p>Средняя Оценка:  <span>${item.vote_average}</span></p>
-                    <p>Количество Голосов:  <span>${item.vote_count}</span></p>
-                    <p>Компания:  <span>${item.production_companies.name}</span></p>
-                    <p>IMDB_id:  <span>${item.imdb_id}</span></p>
-                    <p>TMDB_id:  <span>${item.id}</span></p>
+                    <p>Жанр: <span>${item.genres.name}</span></p>
+                    <p>Средняя Оценка: <span>${item.vote_average}</span></p>
+                    <p>Количество Голосов: <span>${item.vote_count}</span></p>
+                    <p>Компания: <span>${item.production_companies.name}</span></p>
+                    <p>IMDB_id: <span>${item.imdb_id}</span></p>
+                    <p>TMDB_id: <span>${item.id}</span></p>
                 </div>
             </div>
         </div>`
         let canvas = document.querySelector('.imdb')
+        let heart = document.querySelector('.heart')
+
+        heart.onclick = () => {
+            heart.src = '/img/heart2.svg'
+        }
+        heart.ondblclick = () => {
+            heart.src = '/img/heart.svg'
+        }
         const btnUp = {
             addEventListener() {
                 document.querySelector('.show_trailer').onclick = () => {
-                    console.log('click');
                     window.scrollTo({
                         top: 1200,
                         left: 0,
@@ -97,5 +104,3 @@ function film(data) {
         });
     }
 }
-
-
