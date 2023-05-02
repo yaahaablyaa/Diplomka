@@ -1,4 +1,5 @@
 import { searchModal } from "/modules/modal"
+let user = JSON.parse(localStorage.getItem('user'))
 
 export function header(pl) {
   pl.innerHTML += `
@@ -21,10 +22,26 @@ export function header(pl) {
     <div class="right">
       <button class="search"><img src="/img/search_img.png" alt=""></button>
       <button class="login">Войти</button>
+      <button class="user_name"></button>
     </div>`
 
   let search_btn = document.querySelector('.search')
+  let login = document.querySelector(".login");
+  let user_name = document.querySelector(".user_name");
   searchModal(search_btn)
+
+
+  login.onclick = () => {
+    location.assign('/pages/login.html')
+  }
+  if (user) {
+    login.style.display = "none";
+  } else {
+    login.style.display = "block";
+    user_name.style.display = 'none'
+  }
+
+  user_name.innerHTML = user.name
 }
 
 export function footer(pl) {

@@ -6,7 +6,7 @@ let body = document.querySelector('body')
 let films = document.querySelector(".films");
 let popul_f = document.querySelector(".popul_f");
 let person = document.querySelector(".person");
-let humans = document.querySelector('.humans')
+let block = document.querySelector('.block')
 let items = document.querySelector('.items')
 let search_inp = document.querySelector('.search_inp')
 
@@ -35,7 +35,7 @@ search_inp.oninput = () => {
 
 
 export function pop_fil(arr) {
-    arr.forEach((elem) => {
+    arr.slice(0, 4).forEach((elem) => {
         let kinocont = document.createElement("div");
         let kino = document.createElement("div");
         let hover = document.createElement("div");
@@ -124,7 +124,7 @@ export function afisha(data) {
 }
 
 export function movie(arr) {
-    arr.forEach((elem) => {
+    arr.slice(0,4).forEach((elem) => {
         let kinocont = document.createElement("div");
         let kino = document.createElement("div");
         let hover = document.createElement("div");
@@ -228,7 +228,7 @@ export function searchMovie(data) {
         img.classList.add('img')
 
         img.src = `${import.meta.env.VITE_IMG_URL}${item.poster_path}`
-        h3.innerHTML = item.name;
+        h3.innerHTML = item.title;
         span.innerHTML = item.vote_average;;
 
         box.onclick = () => {
@@ -254,7 +254,7 @@ export function searchPerson(data) {
         pers_info.classList.add('pers_info')
 
         img.src = `${import.meta.env.VITE_IMG_URL}${item.profile_path}`
-        h3.innerHTML = item.original_name;
+        h3.innerHTML = item.name;
 
         box.onclick = () => {
             location.assign('/pages/people.html?id=' + item.id)
@@ -269,6 +269,7 @@ export function searchPerson(data) {
 
 
 function popular_person(data) {
+    console.log(data);
     for (let item of data.slice(0, 2)) {
         let human = document.createElement('div')
         let mesto = document.createElement('div')
@@ -292,7 +293,7 @@ function popular_person(data) {
             location.assign('/pages/people.html?id=' + item.id)
         }
 
-        humans.append(human,)
+        block.append(human)
         human.append(mesto, name)
         mesto.append(num)
         name.append(ru_name, en_name, span)

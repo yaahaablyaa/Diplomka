@@ -13,6 +13,26 @@ getData(`movie/${movie_id}/videos`)
 getData(`movie/${movie_id}`)
     .then(res => film([res.data]));
 
+showMovie(1, 451048, 'abc')
+async function getApiData(url, cb) { 
+    const resp = await fetch(url); 
+    const respData = await resp.json(); 
+    cb(respData);
+} 
+
+function showMovie(i, id, title) {
+    const movApi = `${import.meta.env.VITE_BASE_URL}movie/${movie_id}?api_key=${import.meta.env.VITE_API_KEY}&language=ru-RUS`;
+    getApiData(movApi, (movie) => showGenres.call(null, movie, i, id, title));    
+}
+
+function showGenres(movie, i, id, title) {  
+    movie.genres.forEach((genre) => {
+        const {name} = genre;
+        console.log("genre id: " + id + ", genre name: " + name);
+        let genr = document.querySelector('.genr').innerHTML = name
+    })
+}
+
 function film(data) {
     console.log(data);
     for (let item of data) {
@@ -52,7 +72,7 @@ function film(data) {
                     <p>Бюджет: <span>${item.budget}$</span></p>
                 </div>
                 <div class="right_info">
-                    <p>Жанр: <span>${item.genres.name}</span></p>
+                    <p>Жанр: <span class="genr"></span></p>
                     <p>Средняя Оценка: <span>${item.vote_average}</span></p>
                     <p>Количество Голосов: <span>${item.vote_count}</span></p>
                     <p>Компания: <span>${item.production_companies.name}</span></p>

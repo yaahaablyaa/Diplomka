@@ -1,20 +1,23 @@
+@import url('https://fonts.cdnfonts.com/css/qanelas');
+
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Qanelas', sans-serif;
 }
 
 body {
     background-image: url("/img/body-bg.png");
-    background-color: #1E2538;
+    background-color: #1B2133;
     position: absolute;
     background-size: cover;
     background-repeat: no-repeat;
+    // backdrop-filter: blur(1px);
 
     .blur {
         position: absolute;
-        background: linear-gradient(360deg, #1E2538 0%, transparent);
+        background: linear-gradient(360deg, #1B2133 0%, transparent);
         width: 100%;
         height: 500px;
         margin-top: 270px;
@@ -90,7 +93,8 @@ header {
 
     .right {
         display: flex;
-        gap: 15px;
+        align-items: center;
+        gap: 20px;
 
         .search {
             width: 55px;
@@ -118,6 +122,20 @@ header {
             font-size: 16px;
             line-height: 166.5%;
             cursor: pointer;
+        }
+
+        .user_name {
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 166.5%;
+            color: #FFFFFF;
+            cursor: pointer;
+            width: 90px;
+            height: 53px;
+            border-radius: 10px;
+            border: none;
+            background: #3657CB;
+            box-shadow: 0px 0px 15px rgba(75, 120, 255, 0.9);
         }
     }
 }
@@ -263,8 +281,10 @@ header {
     border: 1px solid none;
     border-radius: 10px;
     background-image: url(/src/assets/hover.png);
+    background: linear-gradient(360deg, black .1%, transparent);
     width: 100%;
     height: 100%;
+    margin-top: -38px;
 }
 
 .kino {
@@ -284,6 +304,7 @@ header {
     font-weight: 700;
     margin-top: 100px;
     background-color: white;
+    margin-top: 150px;
 }
 
 .vverx {
@@ -323,7 +344,7 @@ header {
     text-align: center;
     display: flex;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 1%;
     font-weight: 700;
     font-size: 16px;
     line-height: 166.5%;
@@ -347,35 +368,83 @@ header {
 
     .trailer_bot {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 15px;
+        flex-direction: column;
 
-        .left {
+        .heig {
             display: flex;
-            align-items: baseline;
-            gap: 30px;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
 
-            h2 {
-                font-weight: 900;
-                font-size: 45px;
-                line-height: 57px;
-                color: #FFFFFF
+            .left {
+                display: flex;
+                align-items: baseline;
+                gap: 30px;
+
+                h3 {
+                    font-weight: 900;
+                    font-size: 45px;
+                    line-height: 57px;
+                    color: #FFFFFF
+                }
+            }
+
+            .likes {
+                gap: 10px;
+
+                button {
+                    height: 58px;
+                    background: #1B2133;
+                    border-radius: 10px;
+                    border: none;
+
+                    &:hover {
+                        border: 1px solid #4bcb36;
+                    }
+                }
             }
         }
+    }
 
-        .likes {
-            gap: 10px;
+    .trai_items {
+        width: 100%;
+        display: flex;
+        gap: 15px;
+        margin-top: 20px;
 
-            button {
-                height: 58px;
-                background: #1B2133;
-                border-radius: 10px;
-                border: none;
+        .trai {
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            color: white;
+            width: 310.37px;
+            height: 175.02px;
+            background-color: red;
+            background-position: top;
+            background-size: cover;
+            position: relative;
+            border-radius: 14px;
 
-                &:hover {
-                    border: 1px solid #4bcb36;
-                }
+            &::after {
+                content: url("/img/pause.svg");
+                display: block;
+                width: 35px;
+                height: 30px;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                translate: -50% -50%;
+                cursor: pointer;
+            }
+
+            &::before {
+                content: "";
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                background: linear-gradient(#8aa1f3a6 1% transparent);
+                opacity: 0;
+                transition: 0.2s ease-in-out;
             }
         }
     }
@@ -384,9 +453,13 @@ header {
 .humans {
     display: flex;
     justify-content: space-between;
-    flex-direction: row-reverse;
     gap: 25px;
     margin-top: 40px;
+
+    .block {
+        display: flex;
+        gap: 25px;
+    }
 
     .human {
         background-repeat: no-repeat;
@@ -833,6 +906,77 @@ header {
                 margin-top: 5px;
             }
         }
+    }
+}
+
+.log {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+
+    h2 {
+        font-weight: 800;
+        font-size: 40px;
+        line-height: 50px;
+        color: #FFFFFF;
+    }
+
+    form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+
+        input {
+            width: 422px;
+            height: 67px;
+            background: #1E2538;
+            border-radius: 10px;
+            padding-left: 35px;
+            border: none;
+            font-weight: 400;
+            font-size: 17px;
+            line-height: 166.5%;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .logi {
+            width: 422px;
+            height: 55px;
+            background: #F2F60F;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            font-size: 17px;
+            line-height: 166.5%;
+            color: #151A26;
+        }
+    }
+
+    .reg {
+        width: 422px;
+        height: 55px;
+        background: #1E2538;
+        border-radius: 10px;
+        border: none;
+        font-size: 17px;
+        line-height: 166.5%;
+        color: #FFFFFF;
+        margin-top: 14px;
+    }
+
+    .parol {
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 166.5%;
+        text-align: center;
+        color: #3657CB;
+        margin-top: 15px;
+    }
+
+    .socail-apps {
+        margin-top: 20px;
     }
 }
 
