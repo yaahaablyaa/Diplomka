@@ -269,7 +269,6 @@ export function searchPerson(data) {
 
 
 function popular_person(data) {
-    console.log(data);
     for (let item of data.slice(0, 2)) {
         let human = document.createElement('div')
         let mesto = document.createElement('div')

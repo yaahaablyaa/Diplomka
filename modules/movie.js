@@ -3,6 +3,8 @@ let iframe = document.querySelector("iframe");
 const movie_id = location.search.split("=").at(-1);
 let body = document.querySelector('body')
 let movie = document.querySelector('.movie')
+let center_prod = document.querySelector('.center_prod')
+let title = document.querySelector('.title')
 
 getData(`movie/${movie_id}/videos`)
     .then((res) => {
@@ -13,29 +15,39 @@ getData(`movie/${movie_id}/videos`)
 getData(`movie/${movie_id}`)
     .then(res => film([res.data]));
 
+getData(`movie/${movie_id}/credits`)
+    .then(res => product([res.data]));
+
+
+
+
 showMovie(1, 451048, 'abc')
-async function getApiData(url, cb) { 
-    const resp = await fetch(url); 
-    const respData = await resp.json(); 
+async function getApiData(url, cb) {
+    const resp = await fetch(url);
+    const respData = await resp.json();
     cb(respData);
-} 
+}
 
 function showMovie(i, id, title) {
     const movApi = `${import.meta.env.VITE_BASE_URL}movie/${movie_id}?api_key=${import.meta.env.VITE_API_KEY}&language=ru-RUS`;
-    getApiData(movApi, (movie) => showGenres.call(null, movie, i, id, title));    
+    getApiData(movApi, (movie) => showGenres.call(null, movie, i, id, title));
 }
 
-function showGenres(movie, i, id, title) {  
+function showGenres(movie, i, id, title) {
     movie.genres.forEach((genre) => {
-        const {name} = genre;
-        console.log("genre id: " + id + ", genre name: " + name);
+        const { name } = genre;
         let genr = document.querySelector('.genr').innerHTML = name
     })
 }
-
+let age_limit = ''
 function film(data) {
-    console.log(data);
     for (let item of data) {
+        title.innerHTML = item.title
+        if (item.adult === false) {
+            age_limit = '16+'
+        } else {
+            age_limit = '18+'
+        }
         movie.innerHTML += `
         <div class="cont">
             <div class="height">
@@ -48,7 +60,7 @@ function film(data) {
                     <div class="doghnut">
                         <canvas class="imdb"></canvas>
                     </div>
-                    <p>${item.overview}</p>
+                    <p>${item.overview.slice(0, 300)}...</p>
                     <div class="btn">
                         <button class="show_trailer"><img src="/img/play.svg">Показать трейлер</button>
                         <img src="/img/social.svg">
@@ -59,14 +71,17 @@ function film(data) {
                 <button><img src="/img/like.svg"></button>
                 <button><img src="/img/dislike.svg"></button>
                 <button class="rayting">Рейтинг ожиданий</button>
-                <button><img  class="heart" src="/img/heart.svg"></button>
+                <div class="izb">
+                    <button><img  class="heart" src="/img/heart.svg"></button>
+                    <p>В избранном у ${Math.round(item.popularity)} человек</p>
+                </div>
             </div>
-            <div class="movie_info">
+            <div class="info">
                 <div class="left_info">
-                    <p>Дата Релиза: <span>${item.release_date}</span></p>
+                    <p>Год: <span>${item.release_date.split('-').at(0)}</span></p>
                     <p>Страна: <span>${item.origin_country}</span></p>
                     <p>Слоган: <span>${item.tagline}</span></p>
-                    <p>Время: <span>${item.runtime}</span></p>
+                    <p>Время: <span>${item.runtime} мин</span></p>
                     <p>Сборы: <span>${item.revenue}$</span></p>
                     <p>Статус: <span>${item.status}</span></p>
                     <p>Бюджет: <span>${item.budget}$</span></p>
@@ -78,6 +93,7 @@ function film(data) {
                     <p>Компания: <span>${item.production_companies.name}</span></p>
                     <p>IMDB_id: <span>${item.imdb_id}</span></p>
                     <p>TMDB_id: <span>${item.id}</span></p>
+                    <p>Возраст: <span>${age_limit}</span></p>
                 </div>
             </div>
         </div>`
@@ -104,18 +120,19 @@ function film(data) {
         btnUp.addEventListener();
 
         body.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`;
+        let minus_vote = Math.abs(item.vote_average - 10)
 
         var oilData = {
             datasets: [
-            {
-                label: 'Vote',
-                data: [item.vote_average],
-                backgroundColor: [
-                    '#89CB36',
-                    '#293d10'
-                ],
-                borderWidth: 0
-            }], 
+                {
+                    label: 'Vote',
+                    data: [item.vote_average, minus_vote],
+                    backgroundColor: [
+                        '#89CB36',
+                        '#293d10 '
+                    ],
+                    borderWidth: 0
+                }],
         };
 
         var pieChart = new Chart(canvas, {
@@ -124,3 +141,47 @@ function film(data) {
         });
     }
 }
+
+function product(data) {
+    console.log(data);
+    for (let item of data) {
+        center_prod.innerHTML += `
+        <div class="prod_info">
+            <div class="director">
+                <div class="dorector_img">
+                    <img src="/img/Фото.png" alt="">
+                </div>
+                <div class="director_info">
+                    <h3 class="ru_name"></h3>
+                    <h4 class="en_name">Francis Annan</h3>
+                    <p>Режисер</p>
+                </div>
+            </div>
+            <div class="director">
+                <div class="dorector_img">
+                    <img src="/img/Фото.png" alt="">
+                </div>
+                <div class="director_info">
+                    <h3 class="ru_name">Фрэнсис Аннан</h3>
+                    <h4 class="en_name">Francis Annan</h3>        
+                    <p>Режисер</p>
+                </div>
+            </div>
+            <div class="production">
+                <h4>Производство:</h4>
+                <p>1. Arclight Films</p>
+                <p>1. Arclight Films</p>
+                <p>1. Arclight Films</p>
+            </div>
+            <div class="production">
+                <h4>Спецэффекты:</h4>
+                <p>1. Arclight Films</p>
+                <p>1. Arclight Films</p>
+                <p>1. Arclight Films</p>
+            </div>
+        </div>`
+    }
+}
+
+
+

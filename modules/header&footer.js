@@ -34,14 +34,16 @@ export function header(pl) {
   login.onclick = () => {
     location.assign('/pages/login.html')
   }
+  user_name.onclick = () => {
+    location.assign('/pages/profile.html')
+  }
   if (user) {
     login.style.display = "none";
+    user_name.innerHTML = user.name
   } else {
     login.style.display = "block";
     user_name.style.display = 'none'
   }
-
-  user_name.innerHTML = user.name
 }
 
 export function footer(pl) {
