@@ -3,10 +3,19 @@ import { getData, searchData } from "/modules/http.request";
 let head = document.querySelector('.header')
 let tr = document.querySelector('.tr')
 let footer_cont = document.querySelector('.footer_cont')
-let trai_items = document.querySelector(".trai_items");
+let traile = document.querySelector(".traile");
 let trai_movie_name = document.querySelector(".trai_movie_name");
+let btns = document.querySelectorAll('.category a')
 header(head)
 footer(footer_cont)
+
+btns.forEach((btn) => {
+    btn.onclick = (e) => {
+        e.preventDefault()
+        btns.forEach(el => el.classList.remove('active'))
+        btn.classList.add('active')
+    }
+})
 
 const btnUp = {
     addEventListener() {
@@ -21,10 +30,11 @@ const btnUp = {
 }
 btnUp.addEventListener();
 
-getData(`movie/now_playing`).then((res) => trailers(res.data.results, trai_items));
+getData(`movie/now_playing`).then((res) => trailers(res.data.results, traile));
 function trailers(arr, place) {
+    console.log(arr);
     place.innerHTML = "";
-    for (let item of arr.slice(0, 4)) {
+    for (let item of arr) {
         let div = document.createElement("div");
         let h3 = document.createElement('h3')
 

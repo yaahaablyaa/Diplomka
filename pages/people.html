@@ -2,43 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <link rel="stylesheet" href="/sass/style.scss">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=, initial-scale=1.0">
+  <link rel="stylesheet" href="/sass/style.scss">
+  <title class="pers_title"></title>
 </head>
 
 <body>
-    <div class="glav_cont">
-        <header class="header"></header>
-        <div class="poster"></div>
+  <div class="glav_cont">
+    <header class="header"></header>
+    <div class="aktor">
+
     </div>
-    <script type="module" src="/main"></script>
-    <script type="module" src="/modules/ui"></script>
-    <script type="module">
-        import { getData } from "/modules/http.request";
-        const person_id = location.search.split("=").at(-1);
-        let poster = document.querySelector('.poster')
+  </div>
+  <div class="modal-bg"></div>
+  <div class="modal search-modal">
+    <div class="search">
+      <div class="search-modal__input">
+        <input class="search_inp" type="text" name="name">
+        <div class="input-icons">
+          <img src="/img/equalizer.svg" alt="equalizer">
+          <img src="/img/input-search.svg" alt="icon-search" width="40px" height="40px" class="search">
+        </div>
+      </div>
+      <div class="close-modal">
+        <img src="/img/close.svg" alt="">
+      </div>
+    </div>
+    <div class="film-wrapper">
+      <h2>Фильмы</h2>
+      <div class="films"></div>
+    </div>
+    <div class="person-wrapper">
+      <h2>Актеры</h2>
+      <div class="person"></div>
+    </div>
+  </div>
+  <script type="module" src="/main"></script>
+  <script type="module" src="/modules/ui"></script>
+  <script type="module">
+    import { getData } from "/modules/http.request";
+    const person_id = location.search.split("=").at(-1);
+    let aktor = document.querySelector('.aktor')
+    let title = document.querySelector('.pers_title')
 
+    getData(`person/${person_id}`)
+      .then(res => person([res.data]))
 
-        getData(`person/${person_id}`)
-            .then(res => person([res.data]))
+    function person(data) {
+      for (let item of data) {
+        title.innerHTML = item.name
+        console.log(item);
+        aktor.innerHTML += `<div class="person_img">
+            <img src="${import.meta.env.VITE_IMG_URL}${item.profile_path}" alt="" class="pers_img">
+          </div>
+          <div class="person_right">
+            <div class="heigt">
+              <p>Главная >Актеры > ${item.also_known_as[2]}</p>
+              <h1>${item.also_known_as[2]}</h1>
+              <h2>${item.name}</h2>
+            </div>
+            <div class="info_bio">
+              <p>Информация</p>
+              <p>Биография</p>
+            </div>
+          </div>`
+      };
+    }
 
-        function person(data) {
-            console.log(data);
-            for (let item of data) {
-
-                let img = document.createElement('img')
-
-                img.src = `${import.meta.env.VITE_IMG_URL}${item.profile_path}`
-
-                poster.append(img)
-            };
-        }
-            
-    </script>
+  </script>
 </body>
 
 </html>

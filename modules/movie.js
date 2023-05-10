@@ -5,6 +5,7 @@ let body = document.querySelector('body')
 let movie = document.querySelector('.movie')
 let center_prod = document.querySelector('.center_prod')
 let title = document.querySelector('.title')
+let movie_trailer = document.querySelector('.movie_trailer')
 
 getData(`movie/${movie_id}/videos`)
     .then((res) => {
@@ -41,6 +42,7 @@ function showGenres(movie, i, id, title) {
 }
 let age_limit = ''
 function film(data) {
+    console.log(data);
     for (let item of data) {
         title.innerHTML = item.title
         if (item.adult === false) {
@@ -79,7 +81,7 @@ function film(data) {
             <div class="info">
                 <div class="left_info">
                     <p>Год: <span>${item.release_date.split('-').at(0)}</span></p>
-                    <p>Страна: <span>${item.origin_country}</span></p>
+                    <p>Страна: <span>USA</span></p>
                     <p>Слоган: <span>${item.tagline}</span></p>
                     <p>Время: <span>${item.runtime} мин</span></p>
                     <p>Сборы: <span>${item.revenue}$</span></p>
@@ -106,9 +108,10 @@ function film(data) {
         heart.ondblclick = () => {
             heart.src = '/img/heart.svg'
         }
+        let btn = document.querySelector('.show_trailer')
         const btnUp = {
             addEventListener() {
-                document.querySelector('.show_trailer').onclick = () => {
+                btn.onclick = () => {
                     window.scrollTo({
                         top: 1200,
                         left: 0,
@@ -153,7 +156,7 @@ function product(data) {
                 </div>
                 <div class="director_info">
                     <h3 class="ru_name"></h3>
-                    <h4 class="en_name">Francis Annan</h3>
+                    <h4 class="en_name">${item``}</h3>
                     <p>Режисер</p>
                 </div>
             </div>

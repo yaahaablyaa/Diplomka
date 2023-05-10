@@ -13,7 +13,7 @@ export function header(pl) {
         <li><a href="#">Медиа</a></li>
         <li><a href="#">Фильмы</a></li>
         <li><a href="/pages/tv.html">Сериалы</a></li>
-        <li><a href="#">Актёры</a></li>
+        <li><a href="/pages/all_person.html">Актёры</a></li>
         <li><a href="#">Новости</a></li>
         <li><a href="#">Подборки</a></li>
         <li><a href="#">Категории</a></li>
@@ -39,7 +39,7 @@ export function header(pl) {
   }
   if (user) {
     login.style.display = "none";
-    user_name.innerHTML = user.name
+    user_name.innerHTML = user.name.slice(0,5) + '...'
   } else {
     login.style.display = "block";
     user_name.style.display = 'none'

@@ -12,7 +12,7 @@ form.onsubmit = (event) => {
         user[key] = value
     })
 
-    pushData("/users?email=" + user.email)
+    pushData("/users?login=" + user.login)
         .then(res => {
             if (res.status === 200 || res.status === 201) {
                 if (res.data.length !== 0) {

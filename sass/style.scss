@@ -187,8 +187,12 @@ header {
                         text-decoration: none;
                         font-weight: 700;
                         font-size: 18px;
-                        line-height: 22px;
+                        line-height: 22px;                       
                     }
+
+                    .active {
+                        color: white;
+                    } 
                 }
             }
         }
@@ -407,44 +411,54 @@ header {
     }
 
     .trai_items {
-        width: 100%;
+        // width: 100%;
         display: flex;
-        gap: 15px;
-        margin-top: 20px;
 
-        .trai {
+        .traile {
             display: flex;
-            flex-direction: column;
-            justify-content: end;
-            color: white;
-            width: 310.37px;
-            height: 175.02px;
-            background-color: red;
-            background-position: top;
-            background-size: cover;
-            position: relative;
-            border-radius: 14px;
+            gap: 15px;
+            margin-top: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
 
-            &::after {
-                content: url("/img/pause.svg");
-                display: block;
-                width: 35px;
-                height: 30px;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                translate: -50% -50%;
-                cursor: pointer;
-            }
+            // &::-webkit-scrollbar {
+            //     // display: none;
+            // }
 
-            &::before {
-                content: "";
-                width: 100%;
-                height: 100%;
-                position: absolute;
-                background: linear-gradient(#8aa1f3 a6 1% transparent);
-                opacity: 0;
-                transition: 0.2s ease-in-out;
+            .trai {
+                display: flex;
+                flex-direction: column;
+                justify-content: end;
+                color: white;
+                width: 310.37px;
+                height: 175.02px;
+                background-color: red;
+                background-position: top;
+                background-size: cover;
+                position: relative;
+                border-radius: 14px;
+
+                &::after {
+                    content: url("/img/pause.svg");
+                    display: block;
+                    width: 35px;
+                    height: 30px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    translate: -50% -50%;
+                    cursor: pointer;
+                }
+
+                &::before {
+                    content: "";
+                    width: 100%;
+                    height: 100%;
+                    position: absolute;
+                    background: linear-gradient(#8aa1f3 a6 1% transparent);
+                    opacity: 0;
+                    transition: 0.2s ease-in-out;
+                }
             }
         }
     }
@@ -566,19 +580,53 @@ header {
 
 .bottom {
     background: #151a26;
+    padding: 30px 60px;
 
-    .top {
-        margin: 0px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    .bottom_upcoming {
+        margin-top: 15px;
+    }
 
-        a {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 18px;
-            line-height: 22px;
+    .kassa {
+        margin-top: 5px;
+    }
+
+    .top_kassa {
+        margin-top: 15px;
+        // display: flex;
+        // gap: 15px;
+
+        .pop {
+            // display: flex;
+            // gap: 20px;
+            // align-items: center;
+
+            .img_div {
+                .pop_img {
+                    width: 95.7px;
+                    height: 141.2px;
+                }
+            }
+
+            // .pop_txt {
+            //     display: flex;
+            //     flex-direction: column;
+            //     gap: 10PX;
+
+            //     p {
+            //         font-weight: 800;
+            //         font-size: 20px;
+            //         line-height: 25px;
+            //         color: #FFFFFF;
+            //     }
+
+            //     span {
+            //         font-weight: 600;
+            //         font-size: 18px;
+            //         line-height: 20px;
+            //         text-align: left;
+            //         color: #F2F60F;
+            //     }
+            // }
         }
     }
 }
@@ -675,7 +723,7 @@ header {
         display: flex;
         align-items: center;
         flex-direction: column;
-        margin-top: 30px;
+        margin-top: 20px;
         gap: 20px;
 
         img {
@@ -688,11 +736,10 @@ header {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                gap: 20px;
+                gap: 10px;
                 font-weight: 700;
                 font-size: 17px;
                 line-height: 21px;
-                margin-top: 8px;
 
                 li {
                     a {
@@ -1023,10 +1070,6 @@ header {
     }
 }
 
-.active {
-    color: white;
-}
-
 .cont {
     margin: 40px 50px;
 
@@ -1169,6 +1212,7 @@ header {
                 color: #f2f60f;
                 text-decoration: underline;
                 margin-left: 15px;
+                text-align: right;
             }
         }
 
@@ -1282,6 +1326,8 @@ header {
     margin-top: 2%;
 
     .big_news {
+        background-repeat: no-repeat;
+        background-size: cover;
         width: 90%;
         height: 590px;
         background-color: #3657cb;
@@ -1295,6 +1341,13 @@ header {
             display: flex;
             flex-direction: column;
             gap: 10px;
+
+            h2 {
+                font-weight: 900;
+                font-size: 40px;
+                line-height: 57px;
+                color: #FFFFFF;
+            }
         }
     }
 
@@ -1304,10 +1357,48 @@ header {
         gap: 15px;
 
         .smols {
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
             width: 330px;
             height: 185px;
             background-color: #3657cb;
             border-radius: 20px;
+            padding: 10px 20px;
+
+            .bottomtxt h2 {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 23px;
+                color: #FFFFFF;
+            }
         }
     }
+}
+
+.aktor {
+    display: flex;
+    gap: 40px;
+    padding: 40px 50px;
+
+    .person_img {
+        img {
+            width: 398px;
+            height: 597px;
+            border-radius: 10px;
+        }
+
+    }
+
+    .info_bio {
+        margin-top: 10px;
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.bottom {
+    padding: 30px 60px;
 }
