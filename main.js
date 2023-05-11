@@ -32,7 +32,6 @@ btnUp.addEventListener();
 
 getData(`movie/now_playing`).then((res) => trailers(res.data.results, traile));
 function trailers(arr, place) {
-    console.log(arr);
     place.innerHTML = "";
     for (let item of arr) {
         let div = document.createElement("div");

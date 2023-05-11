@@ -1,22 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
   <link rel="stylesheet" href="/sass/style.scss">
+  <link rel="stylesheet" href="/sass/people.scss">
   <title class="pers_title"></title>
 </head>
-
 <body>
   <div class="glav_cont">
     <header class="header"></header>
-    <div class="aktor">
-
+    <div class="aktor"></div>
+    <div class="aktor_films">
+      <h1>Все Фильмы</h1>
+      <div class="swiper persSwiper">
+        <div class="swiper-wrapper"></div>
+      </div>
+    </div>
+    <div class="aktor_photo">
+      <h1>Фото</h1>
+      <div class="photo_block"></div>
+    </div>
+    <div class="aktor_rayting_film">
+      <h1>Рейтинг Фильмографии</h1>
+      <canvas id="line-chart"></canvas>
     </div>
   </div>
+  <footer class="footer_cont"></footer>
   <div class="modal-bg"></div>
   <div class="modal search-modal">
     <div class="search">
@@ -42,37 +55,8 @@
   </div>
   <script type="module" src="/main"></script>
   <script type="module" src="/modules/ui"></script>
-  <script type="module">
-    import { getData } from "/modules/http.request";
-    const person_id = location.search.split("=").at(-1);
-    let aktor = document.querySelector('.aktor')
-    let title = document.querySelector('.pers_title')
-
-    getData(`person/${person_id}`)
-      .then(res => person([res.data]))
-
-    function person(data) {
-      for (let item of data) {
-        title.innerHTML = item.name
-        console.log(item);
-        aktor.innerHTML += `<div class="person_img">
-            <img src="${import.meta.env.VITE_IMG_URL}${item.profile_path}" alt="" class="pers_img">
-          </div>
-          <div class="person_right">
-            <div class="heigt">
-              <p>Главная >Актеры > ${item.also_known_as[2]}</p>
-              <h1>${item.also_known_as[2]}</h1>
-              <h2>${item.name}</h2>
-            </div>
-            <div class="info_bio">
-              <p>Информация</p>
-              <p>Биография</p>
-            </div>
-          </div>`
-      };
-    }
-
-  </script>
+  <script type="module" src="/modules/people"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
 </body>
-
 </html>

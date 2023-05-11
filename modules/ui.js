@@ -12,6 +12,7 @@ let swiper_wrapper = document.querySelector(".swiper-wrapper");
 let top_kassa = document.querySelector(".top_kassa");
 let search_inp = document.querySelector('.search_inp')
 let data_show = document.querySelector('.all')
+let pop_show = document.querySelector('.popular_all')
 
 
 getData(`movie/now_playing`)
@@ -20,12 +21,20 @@ getData(`movie/now_playing`)
 
         data_show.onclick = () => {
             movie(res.data.results.slice(4,12), kinoCont)
+            data_show.style.display= 'none'
         }
 
     })
 
 getData('movie/top_rated')
-    .then(res => pop_fil(res.data.results))
+    .then(res => {
+        pop_fil(res.data.results.slice(0,4), popul_f)
+
+        pop_show.onclick = () => {
+            pop_fil(res.data.results.slice(4,12), popul_f)
+            pop_show.style.display= 'none'
+        }
+    })
 
 getData('/tv/top_rated')
     .then(res => tv(res.data.results))
@@ -40,7 +49,7 @@ getData(`movie/upcoming`)
     .then(res => upcomin(res.data.results))
 
 search_inp.oninput = () => {
-    searchData(`search/multi`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
+    searchData(`search/movie`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
         .then(res => searchMovie(res.data.results))
 
     searchData(`search/person`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
@@ -89,13 +98,11 @@ function movie(data, pl) {
         kinocont.append(kino, kinoName, kinoType);
         hover.append(infoKino);
         kino.append(rayting, hover);
-
-
     };
 }
 
-export function pop_fil(arr) {
-    arr.slice(0, 4).forEach((elem) => {
+export function pop_fil(data, pl) {
+    for (let item of data) {
         let kinocont = document.createElement("div");
         let kino = document.createElement("div");
         let hover = document.createElement("div");
@@ -105,8 +112,8 @@ export function pop_fil(arr) {
         let kinoName = document.createElement("p");
         let kinoType = document.createElement("p");
 
-        rayting.innerHTML = elem.vote_average;
-        kinoName.innerHTML = elem.title;
+        rayting.innerHTML = item.vote_average;
+        kinoName.innerHTML = item.title;
         kinoType.innerHTML = 'Подробнее'
         hoverBtn.innerHTML = "Карточка фильма";
 
@@ -117,22 +124,22 @@ export function pop_fil(arr) {
         rayting.classList.add("rayting");
         kinoType.classList.add("type-kino");
 
-        kino.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${elem.poster_path})`;
+        kino.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.poster_path})`;
 
         hoverBtn.onclick = () => {
-            location.assign('/pages/movie.html?id=' + elem.id)
+            location.assign('/pages/movie.html?id=' + item.id)
         }
 
         kinoType.onclick = () => {
-            location.assign('/pages/movie.html?id=' + elem.id)
+            location.assign('/pages/movie.html?id=' + item.id)
         }
 
-        popul_f.append(kinocont);
+        pl.append(kinocont);
         infoKino.append(hoverBtn);
         kinocont.append(kino, kinoName, kinoType);
         hover.append(infoKino);
         kino.append(rayting, hover);
-    });
+    };
 }
 
 export function afisha(data) {
@@ -183,8 +190,8 @@ export function afisha(data) {
     }
 }
 
-export function tv(arr) {
-    arr.forEach((elem) => {
+export function tv(data) {
+    for (let item of data) {
         let kinocont = document.createElement("div");
         let kino = document.createElement("div");
         let hover = document.createElement("div");
@@ -194,8 +201,8 @@ export function tv(arr) {
         let kinoName = document.createElement("p");
         let kinoType = document.createElement("p");
 
-        rayting.innerHTML = elem.vote_average;
-        kinoName.innerHTML = elem.name;
+        rayting.innerHTML = item.vote_average;
+        kinoName.innerHTML = item.name;
         kinoType.innerHTML = 'Подробнее'
         hoverBtn.innerHTML = "Карточка фильма";
 
@@ -206,18 +213,18 @@ export function tv(arr) {
         rayting.classList.add("rayting");
         kinoType.classList.add("type-kino");
 
-        kino.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${elem.poster_path})`;
+        kino.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.poster_path})`;
 
         hoverBtn.onclick = () => {
-            location.assign('/pages/movie.html?id=' + elem.id)
+            location.assign('/pages/movie.html?id=' + item.id)
         }
 
         kinoType.onclick = () => {
-            location.assign('/pages/movie.html?id=' + elem.id)
+            location.assign('/pages/movie.html?id=' + item.id)
         }
 
         kinocont.onclick = () => {
-            body.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${elem.backdrop_path})`
+            body.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`
         }
 
         tvCont.append(kinocont);
@@ -225,11 +232,11 @@ export function tv(arr) {
         kinocont.append(kino, kinoName, kinoType);
         hover.append(infoKino);
         kino.append(rayting, hover);
-    });
+    };
 }
 
 export function searchMovie(data) {
-    data.forEach((item) => {
+    for (let item of data) {
         let box = document.createElement('div')
         let film_img = document.createElement("div");
         let film_info = document.createElement("div");
@@ -253,11 +260,11 @@ export function searchMovie(data) {
         film_info.append(h3, span)
         box.append(img, film_info)
         films.prepend(box)
-    });
+    };
 }
 
 export function searchPerson(data) {
-    data.forEach((item) => {
+    for (let item of data) {
         let box = document.createElement('div')
         let pers_img = document.createElement("div");
         let pers_info = document.createElement("div");
@@ -279,7 +286,7 @@ export function searchPerson(data) {
         pers_info.append(h3)
         box.append(pers_img, pers_info)
         person.prepend(box)
-    });
+    };
 }
 
 function upcomin(data) {
