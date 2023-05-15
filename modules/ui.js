@@ -2,7 +2,7 @@ import { getData, searchData } from "/modules/http.request";
 let kinoCont = document.querySelector(".kino-container");
 let tvCont = document.querySelector(".tv");
 let upcoming = document.querySelector(".upcoming");
-let body = document.querySelector('body')
+let body = document.querySelector('.cont_bg')
 let films = document.querySelector(".films");
 let popul_f = document.querySelector(".popul_f");
 let person = document.querySelector(".person");
@@ -20,19 +20,19 @@ getData(`movie/now_playing`)
         movie(res.data.results.slice(0, 4), kinoCont)
 
         data_show.onclick = () => {
-            movie(res.data.results.slice(4,12), kinoCont)
-            data_show.style.display= 'none'
+            movie(res.data.results.slice(4, 16), kinoCont)
+            data_show.style.display = 'none'
         }
 
     })
 
 getData('movie/top_rated')
     .then(res => {
-        pop_fil(res.data.results.slice(0,4), popul_f)
+        pop_fil(res.data.results.slice(0, 4), popul_f)
 
         pop_show.onclick = () => {
-            pop_fil(res.data.results.slice(4,12), popul_f)
-            pop_show.style.display= 'none'
+            pop_fil(res.data.results.slice(4, 16), popul_f)
+            pop_show.style.display = 'none'
         }
     })
 
@@ -189,6 +189,7 @@ export function afisha(data) {
         }
     }
 }
+console.log(upcoming);
 
 export function tv(data) {
     for (let item of data) {
@@ -361,17 +362,26 @@ const swiper = new Swiper(".mySwiper", {
     spaceBetween: 55,
     type: "fraction",
     pagination: {
-        // el: ".swiper-pagination",
         clickable: true,
-        // type: "fraction",
-    },
-    navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
     },
     autoplay: {
         delay: 2000,
     },
+    mousewhel: {
+        sensitivity: 1,
+        eventsTarget: '.swiper_slide'
+    },
+    keyboard: {
+        enable: true,
+        onlyInViewport: true
+    },
+    scrollbar: {
+        el: '.swiper-scrollbar',
+        draggable: true
+    },
+    simulateTouch: true,
+    touchRatio: 1,
+    grabCursor: true,
 });
 
 function popular_person(data) {
@@ -424,4 +434,3 @@ function popular_person(data) {
         }
     }
 }
-

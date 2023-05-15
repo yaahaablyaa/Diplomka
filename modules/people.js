@@ -86,7 +86,7 @@ function person(data, pl) {
 
 function pers_film(data, pl) {
   for (let item of data) {
-    let swiper_slide = document.createElement("swiper-slide");
+    let swiper_slide = document.createElement("div");
     let kinocont = document.createElement("div");
     let kino = document.createElement("div");
     let hover = document.createElement("div");
@@ -111,6 +111,7 @@ function pers_film(data, pl) {
     hoverBtn.classList.add("info-card");
     rayting.classList.add("rayting");
     kinoType.classList.add("type-kino");
+    swiper_slide.classList.add("swiper-slide");
 
     if (!item.poster_path) {
       kino.style.backgroundImage = `url('/img/nonPester.png')`;
@@ -160,6 +161,21 @@ const swiper = new Swiper(".persSwiper", {
   autoplay: {
     delay: 2000,
   },
+  mousewhel: {
+    sensitivity: 1,
+    eventsTarget: '.swiper_slide'
+  },
+  keyboard: {
+    enable: true,
+    onlyInViewport: true
+  }, 
+  scrollbar: {
+    el: '.swiper-scrollbar', 
+    draggable: true
+  },
+  simulateTouch: true,
+  touchRatio: 1,
+  grabCursor: true,
 });
 
 function pers_photo(data, pl) {

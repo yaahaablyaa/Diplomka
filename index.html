@@ -1,45 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.css" />
   <link rel="stylesheet" href="/sass/style.scss">
-  <link rel="stylesheet" href="/sass/media.scss">
   <title>WePflix</title>
 </head>
-
 <body>
   <div class="vverx">
     <img src="/img/naverx.png" alt="">
   </div>
-  <div class="blur"></div>
-  <div class="glav_cont">
-    <header class="header"></header>
-    <div class="container">
-      <div class="top">
-        <h1>Сейчас в Кино</h1>
-        <div class="line"></div>
-        <div class="category">
-          <ul>
-            <li><a href="#">Все</a></li>
-            <li><a href="#">Боевики</a></li>
-            <li><a href="#">Приключения</a></li>
-            <li><a href="#">Комедии</a></li>
-            <li><a href="#">Фантастика</a></li>
-            <li><a href="#">Триллеры</a></li>
-            <li><a href="#">Драма</a></li>
-          </ul>
+    <div class="cont_bg">
+
+      <header class="header"></header>
+      <div class="container">
+        <div class="top">
+          <h1>Сейчас в Кино</h1>
+          <div class="line"></div>
+          <div class="category">
+            <ul>
+              <li><a href="#">Все</a></li>
+              <li><a href="#">Боевики</a></li>
+              <li><a href="#">Приключения</a></li>
+              <li><a href="#">Комедии</a></li>
+              <li><a href="#">Фантастика</a></li>
+              <li><a href="#">Триллеры</a></li>
+              <li><a href="#">Драма</a></li>
+            </ul>
+          </div>
         </div>
+        <div class="kino-container"></div>
+        <center>
+          <button class="all">Показать Все</button>
+        </center>
       </div>
-      <div class="kino-container"></div>
-      <center>
-        <button class="all">Показать Все</button>
-      </center>
     </div>
+  <div class="glav_cont">
+
     <div class="trailers">
       <div class="top">
         <h1>Новые Трейлеры</h1>
@@ -147,7 +147,8 @@
     </div>
     <div class="bottom_upcoming">
       <div class="swiper mySwiper">
-        <div class="swiper-wrapper"></div>
+        <div class="swiper-wrapper"></div><br>
+        <div class="swiper-scrollbar"></div>
       </div>
     </div>
   </div>
@@ -177,9 +178,8 @@
       </div>
     </div>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.js"></script>
   <script type="module" src="/main"></script>
   <script type="module" src="/modules/ui"></script>
 </body>
-
 </html>

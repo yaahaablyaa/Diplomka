@@ -6,8 +6,52 @@ let footer_cont = document.querySelector('.footer_cont')
 let traile = document.querySelector(".traile");
 let trai_movie_name = document.querySelector(".trai_movie_name");
 let btns = document.querySelectorAll('.category a')
+let sbtn = document.querySelector('.btn-settings')
+let settings_prof = document.querySelector('#settings_prof')
+
+
 header(head)
 footer(footer_cont)
+
+
+let g_prof = document.querySelector('#g_prof')
+let btn_active = document.querySelector(".btn-prof-active")
+sbtn.onclick = () => {
+    settings_prof.style.display = "block"
+    g_prof.style.display = "none"
+}
+
+btn_active.onclick = () => {
+    settings_prof.style.display = "none"
+    g_prof.style.display = "block"
+}
+let img = document.querySelector('#img');
+let img1 = document.querySelector('#img1');
+let inp = document.getElementById('input');
+
+inp.onchange = (e) => {
+    if (inp.files[0]) {
+        if (/^image\//.test(inp.files[0].type)) {
+            img.src = URL.createObjectURL(inp.files[0]);
+            img1.src = URL.createObjectURL(inp.files[0]);
+
+            localStorage.setItem('image', img.src); // сохраняем ссылку на изображение в localstorage
+        } else {
+            alert('Выбранный файл не является изображением!');
+        }
+    }
+};
+
+if (localStorage.getItem('image')) {
+    img.src = localStorage.getItem('image');
+    img1.src = localStorage.getItem('image');
+
+}
+
+const fileInput = document.getElementById("input");
+fileInput.addEventListener("change", function () {
+    const fileName = this.value.split("\\").pop();
+});
 
 btns.forEach((btn) => {
     btn.onclick = (e) => {
@@ -53,3 +97,23 @@ function trailers(arr, place) {
         };
     };
 }
+
+
+
+function onChangeEvent() {
+    var selectOption = document.getElementById("language-id").value;
+    var result = document.getElementById("language-label");
+    if (selectOption == "English") {
+        var english = document.getElementById("english").value;
+        result.innerHTML = english;
+    } else if (selectOption == "German") {
+        var germen = document.getElementById("german").value;
+        result.innerHTML = germen;
+    } else if (selectOption == "French") {
+        var french = document.getElementById("french").value;
+        result.innerHTML = french;
+    }
+
+}
+
+

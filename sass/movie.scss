@@ -1,6 +1,7 @@
 .cont {
     margin: 40px 50px;
-
+position: relative;
+z-index: 1;
     .height {
         display: flex;
         justify-content: baseline;
@@ -19,6 +20,18 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+
+            .pere {
+                margin-top: 5px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 168.7%;
+                color: #4F5B7C;
+
+                span {
+                    color: white;
+                }
+            }
 
             h1 {
                 font-weight: 900;
@@ -122,44 +135,77 @@
         }
     }
 
-    .info {
-        margin-top: 45px;
+   .info {
+  position: relative;
+    margin-top: 45px;
+    display: flex !important;
+    margin-top: 50px;
+    gap: 100px;
+  z-index: 1;
+
+    .left_info {
+      width: 553px;
+      display: flex;
+      gap: 30px;
+      font-size: 18px;
+      line-height: 22px;
+      color: rgba(255, 255, 255, 0.9);
+      .p_info {
+        padding: 10px;
+
+        p {
+          margin-top: 10px;
+          //  font-weight: 800;
+
+          font-size: 18px;
+        }
+      }
+      .span_info {
         display: flex;
-        gap: 300px;
+        padding: 10px;
+        flex-direction: column !important;
+        text-align: start !important;
 
-        .left_info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            font-weight: 800;
-            font-size: 18px;
-            line-height: 22px;
-            color: rgba(255, 255, 255, 0.9);
-
-            span {
-                color: #f2f60f;
-                text-decoration: underline;
-                margin-left: 15px;
-                text-align: right;
-            }
+        span {
+          color: #f2f60f;
+          margin-top: 18px;
+          text-decoration: underline;
         }
-
-        .right_info {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            font-weight: 800;
-            font-size: 18px;
-            line-height: 22px;
-            color: rgba(255, 255, 255, 0.9);
-
-            span {
-                color: #f2f60f;
-                text-decoration: underline;
-                margin-left: 15px;
-            }
-        }
+      }
     }
+
+    .right_info {
+      width: 553px;
+      display: flex;
+      gap: 30px;
+      font-size: 18px;
+      line-height: 22px;
+      color: rgba(255, 255, 255, 0.9);
+
+      .p_info {
+        padding: 10px;
+
+        p {
+          margin-top: 10px;
+          //  font-weight: 800;
+
+          font-size: 18px;
+        }
+      }
+      .span_info {
+        display: flex;
+        padding: 10px;
+        flex-direction: column !important;
+        text-align: start !important;
+
+        span {
+          color: #f2f60f;
+          margin-top: 18px;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
 }
 
 .prod_info {

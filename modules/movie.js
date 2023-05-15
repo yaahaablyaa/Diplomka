@@ -1,11 +1,12 @@
 import { getData } from "/modules/http.request";
 let iframe = document.querySelector("iframe");
 const movie_id = location.search.split("=").at(-1);
-let body = document.querySelector('body')
 let movie = document.querySelector('.movie')
 let center_prod = document.querySelector('.center_prod')
 let title = document.querySelector('.title')
 let movie_trailer = document.querySelector('.movie_trailer')
+
+// console.log(cont_bg);
 
 getData(`movie/${movie_id}/videos`)
     .then((res) => {
@@ -42,7 +43,6 @@ function showGenres(movie, i, id, title) {
 }
 let age_limit = ''
 function film(data) {
-    console.log(data);
     for (let item of data) {
         title.innerHTML = item.title
         if (item.adult === false) {
@@ -80,22 +80,52 @@ function film(data) {
             </div>
             <div class="info">
                 <div class="left_info">
-                    <p>Год: <span>${item.release_date.split('-').at(0)}</span></p>
-                    <p>Страна: <span>USA</span></p>
-                    <p>Слоган: <span>${item.tagline}</span></p>
-                    <p>Время: <span>${item.runtime} мин</span></p>
-                    <p>Сборы: <span>${item.revenue}$</span></p>
-                    <p>Статус: <span>${item.status}</span></p>
-                    <p>Бюджет: <span>${item.budget}$</span></p>
+                   <div class="p_info">
+                     <p>Год:    </p>
+                     <p>Страна: </p>
+                     <p>Слоган: </p>
+                     <p>Время:  </p>
+                     <p>Сборы: </p>
+                     <p>Статус:</p>
+                     <p>Бюджет:</p>
+                   </div>
+
+                    <div class="span_info">
+                      <span>${item.release_date.split('-').at(0)}</span>
+                      <span>${item.origin_country}</span>
+                      <span>${item.tagline}</span>
+                      <span>${item.runtime}мин</span>
+                      <span>${item.revenue}</span>
+                      <span>${item.status}</span>
+                      <span>${item.budget}</span>
+                    </div>
+
+
+
                 </div>
                 <div class="right_info">
-                    <p>Жанр: <span class="genr"></span></p>
-                    <p>Средняя Оценка: <span>${item.vote_average}</span></p>
-                    <p>Количество Голосов: <span>${item.vote_count}</span></p>
-                    <p>Компания: <span>${item.production_companies.name}</span></p>
-                    <p>IMDB_id: <span>${item.imdb_id}</span></p>
-                    <p>TMDB_id: <span>${item.id}</span></p>
-                    <p>Возраст: <span>${age_limit}</span></p>
+
+                  <div class="p_info">
+                 
+                    <p>Жанр:</p>
+                    <p>Средняя Оценка:</p>
+                    <p>Количество Голосов:</p>
+                    <p>Компания: </p>
+                    <p>IMDB_id: </p>
+                    <p>TMDB_id:    </p>
+                    <p>Возраст: </p>
+                   </div>
+
+                    <div class="span_info">
+                     <span class="genr"></span>
+                     <span>${item.vote_average}</span>
+                     <span>${item.vote_count}</span>
+                     <span>${item.production_companies.name}</span>
+                     <span>${item.imdb_id}</span>
+                     <span>${item.id}</span>
+                     <span>${age_limit}</span>
+                    </div>
+
                 </div>
             </div>
         </div>`
@@ -122,9 +152,8 @@ function film(data) {
         }
         btnUp.addEventListener();
 
-        body.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`;
         let minus_vote = Math.abs(item.vote_average - 10)
-
+        
         var oilData = {
             datasets: [
                 {
@@ -136,16 +165,16 @@ function film(data) {
                     ],
                     borderWidth: 0
                 }],
-        };
-
-        var pieChart = new Chart(canvas, {
-            type: 'doughnut',
-            data: oilData
-        });
+            };
+            
+            var pieChart = new Chart(canvas, {
+                type: 'doughnut',
+                data: oilData
+            });
+        }
     }
-}
-
-function product(data) {
+    
+    function product(data) {
     console.log(data);
     for (let item of data) {
         center_prod.innerHTML += `
@@ -185,6 +214,3 @@ function product(data) {
         </div>`
     }
 }
-
-
-

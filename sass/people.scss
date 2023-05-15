@@ -134,11 +134,11 @@
 }
 
 .aktor_films {
-    padding: 30px 40px;
+    padding: 30px;
 }
 
 .aktor_photo {
-    padding: 30px 40px;
+    padding: 30px;
 
     .photo_block {
         display: grid;
@@ -158,5 +158,10 @@
 }
 
 .aktor_rayting_film {
-    padding: 30px 40px;
+    padding: 30px;
+}
+
+.swiper-scrollbar-drag {
+    cursor: pointer;
+    background-color: aliceblue;
 }

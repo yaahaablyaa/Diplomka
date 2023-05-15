@@ -11,7 +11,7 @@ export function header(pl) {
       <ul>
         <li><a href="/pages/afisha.html">Афиша</a></li>
         <li><a href="#">Медиа</a></li>
-        <li><a href="#">Фильмы</a></li>
+        <li><a href="/pages/all_movies.html">Фильмы</a></li>
         <li><a href="/pages/tv.html">Сериалы</a></li>
         <li><a href="/pages/all_person.html">Актёры</a></li>
         <li><a href="#">Новости</a></li>
