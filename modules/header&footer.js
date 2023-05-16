@@ -4,7 +4,7 @@ let user = JSON.parse(localStorage.getItem('user'))
 export function header(pl) {
   pl.innerHTML += `
     <div class="left">
-      <a class="logo" href="/index.html"><img src="/img/wepro.svg" alt=""></a>
+      <a class="logo" href="/index.html"><img src="/img/logo.png" alt=""></a>
       <img src="/img/social.svg" alt="social">
     </div>
     <div class="center">
@@ -28,6 +28,7 @@ export function header(pl) {
   let search_btn = document.querySelector('.search')
   let login = document.querySelector(".login");
   let user_name = document.querySelector(".user_name");
+  let hBtns = document.querySelectorAll('a')
   searchModal(search_btn)
 
 
@@ -39,11 +40,20 @@ export function header(pl) {
   }
   if (user) {
     login.style.display = "none";
-    user_name.innerHTML = user.name.slice(0,5) + '...'
+    user_name.innerHTML = user.name.slice(0, 5) + '...'
   } else {
     login.style.display = "block";
     user_name.style.display = 'none'
   }
+
+  hBtns.forEach((btn) => {
+    btn.onclick = () => {
+      hBtns.forEach(el => el.classList.remove('active2'))
+      hBtns.forEach(el => el.classList.remove('fade'))
+      btn.classList.add('active2')
+      btn.classList.add('fade')
+    }
+  })
 }
 
 export function footer(pl) {

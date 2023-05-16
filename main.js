@@ -13,51 +13,13 @@ let settings_prof = document.querySelector('#settings_prof')
 header(head)
 footer(footer_cont)
 
-
-let g_prof = document.querySelector('#g_prof')
-let btn_active = document.querySelector(".btn-prof-active")
-sbtn.onclick = () => {
-    settings_prof.style.display = "block"
-    g_prof.style.display = "none"
-}
-
-btn_active.onclick = () => {
-    settings_prof.style.display = "none"
-    g_prof.style.display = "block"
-}
-let img = document.querySelector('#img');
-let img1 = document.querySelector('#img1');
-let inp = document.getElementById('input');
-
-inp.onchange = (e) => {
-    if (inp.files[0]) {
-        if (/^image\//.test(inp.files[0].type)) {
-            img.src = URL.createObjectURL(inp.files[0]);
-            img1.src = URL.createObjectURL(inp.files[0]);
-
-            localStorage.setItem('image', img.src); // сохраняем ссылку на изображение в localstorage
-        } else {
-            alert('Выбранный файл не является изображением!');
-        }
-    }
-};
-
-if (localStorage.getItem('image')) {
-    img.src = localStorage.getItem('image');
-    img1.src = localStorage.getItem('image');
-
-}
-
-const fileInput = document.getElementById("input");
-fileInput.addEventListener("change", function () {
-    const fileName = this.value.split("\\").pop();
-});
-
 btns.forEach((btn) => {
     btn.onclick = (e) => {
         e.preventDefault()
         btns.forEach(el => el.classList.remove('active'))
+        btns.forEach(el => el.classList.remove('fade'))
         btn.classList.add('active')
+        btn.classList.add('fade')
     }
 })
 
@@ -116,4 +78,49 @@ function onChangeEvent() {
 
 }
 
+let g_prof = document.querySelector('#g_prof')
+let btn_active = document.querySelector(".btn-prof-active")
+sbtn.onclick = () => {
+    settings_prof.style.display = "block"
+    g_prof.style.display = "none"
+}
 
+btn_active.onclick = () => {
+    settings_prof.style.display = "none"
+    g_prof.style.display = "block"
+}
+let img = document.querySelector('#img');
+let img1 = document.querySelector('#img1');
+let inp = document.getElementById('input');
+
+inp.onchange = (e) => {
+    if (inp.files[0]) {
+        if (/^image\//.test(inp.files[0].type)) {
+            img.src = URL.createObjectURL(inp.files[0]);
+            img1.src = URL.createObjectURL(inp.files[0]);
+
+            localStorage.setItem('image', img.src);
+        } else {
+            alert('Выбранный файл не является изображением!');
+        }
+    }
+};
+
+if (localStorage.getItem('image')) {
+    img.src = localStorage.getItem('image');
+    img1.src = localStorage.getItem('image');
+
+}
+
+const fileInput = document.getElementById("input");
+fileInput.addEventListener("change", function () {
+    const fileName = this.value.split("\\").pop();
+});
+
+btns.forEach((btn) => {
+    btn.onclick = (e) => {
+        e.preventDefault()
+        btns.forEach(el => el.classList.remove('active'))
+        btn.classList.add('active')
+    }
+})

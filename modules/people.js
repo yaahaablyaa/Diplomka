@@ -17,6 +17,7 @@ getData(`person/${person_id}`)
 function person(data, pl) {
   for (let item of data) {
     title.innerHTML = item.name
+    let age = new Date().getFullYear() - String(item.birthday.split('-').at(0))
     pl.innerHTML += `
           <div class="person_img">
             <img src="${import.meta.env.VITE_IMG_URL}${item.profile_path}" alt="" class="pers_img">
@@ -44,8 +45,8 @@ function person(data, pl) {
                 <div class="right">
                   <span>${item.known_for_department}</span>
                   <span>${item.place_of_birth}</span>
-                  <span>${item.birthday.split('-').at(0)}</span>
-                  <span>${item.popularity}</span>
+                  <span>${item.birthday.split('-').at(0)} (${age} лет)</span>
+                  <span>${item.popularity} человек</span>
                   <span>${item.imdb_id}</span>
                   <span>${item.id}</span>
                 </div

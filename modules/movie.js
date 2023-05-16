@@ -2,11 +2,10 @@ import { getData } from "/modules/http.request";
 let iframe = document.querySelector("iframe");
 const movie_id = location.search.split("=").at(-1);
 let movie = document.querySelector('.movie')
-let center_prod = document.querySelector('.center_prod')
 let title = document.querySelector('.title')
-let movie_trailer = document.querySelector('.movie_trailer')
+let body = document.querySelector('body')
+let bllock = document.querySelector('.bllock')
 
-// console.log(cont_bg);
 
 getData(`movie/${movie_id}/videos`)
     .then((res) => {
@@ -17,9 +16,41 @@ getData(`movie/${movie_id}/videos`)
 getData(`movie/${movie_id}`)
     .then(res => film([res.data]));
 
-getData(`movie/${movie_id}/credits`)
-    .then(res => product([res.data]));
+let dirname = document.querySelector('.ru_name')
+let en_name = document.querySelector('.en_name')
+let vfx = document.querySelector('.vfx')
+let artt = document.querySelector('.art')
+let soundd = document.querySelector('.sound')
+let scenari = document.querySelector('.scenario')
+let produserr = document.querySelector('.produserr')
+let vfx2 = document.querySelector('.vfx2')
+let artt2 = document.querySelector('.art2')
+let soundd2 = document.querySelector('.sound2')
+let scenari2 = document.querySelector('.scenario2')
+let produserr2 = document.querySelector('.produserr2')
 
+getData(`movie/${movie_id}/credits`)
+    .then(res => {
+        let dirFil = res.data.crew.filter(el => el.known_for_department === 'Directing')
+        let art = res.data.crew.filter(el => el.known_for_department === 'Art')
+        let scenario = res.data.crew.filter(el => el.known_for_department === 'Writing')
+        let producer = res.data.crew.filter(el => el.known_for_department === 'Production')
+        let viEff = res.data.crew.filter(el => el.known_for_department === 'Visual Effects')
+        let sound = res.data.crew.filter(el => el.known_for_department === 'Sound')
+        dirname.innerHTML = dirFil[0].name
+        produserr.innerHTML = producer[0].name
+        vfx.innerHTML = viEff[0].name
+        artt.innerHTML = art[0].name
+        soundd.innerHTML = sound[0].name
+        scenari.innerHTML = scenario[0].name
+        en_name.innerHTML = dirFil[1].name
+        produserr2.innerHTML = producer[1].name
+        vfx2.innerHTML = viEff[1].name
+        artt2.innerHTML = art[1].name
+        soundd2.innerHTML = sound[1].name
+        scenari2.innerHTML = scenario[1].name
+        product(res.data.cast, bllock)
+    });
 
 
 
@@ -50,6 +81,7 @@ function film(data) {
         } else {
             age_limit = '18+'
         }
+        body.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`
         movie.innerHTML += `
         <div class="cont">
             <div class="height">
@@ -81,15 +113,14 @@ function film(data) {
             <div class="info">
                 <div class="left_info">
                    <div class="p_info">
-                     <p>Год:    </p>
-                     <p>Страна: </p>
-                     <p>Слоган: </p>
-                     <p>Время:  </p>
-                     <p>Сборы: </p>
+                     <p>Год:</p>
+                     <p>Страна:</p>
+                     <p>Слоган:</p>
+                     <p>Время:</p>
+                     <p>Сборы:</p>
                      <p>Статус:</p>
                      <p>Бюджет:</p>
                    </div>
-
                     <div class="span_info">
                       <span>${item.release_date.split('-').at(0)}</span>
                       <span>${item.origin_country}</span>
@@ -99,23 +130,17 @@ function film(data) {
                       <span>${item.status}</span>
                       <span>${item.budget}</span>
                     </div>
-
-
-
                 </div>
                 <div class="right_info">
-
                   <div class="p_info">
-                 
                     <p>Жанр:</p>
                     <p>Средняя Оценка:</p>
                     <p>Количество Голосов:</p>
-                    <p>Компания: </p>
-                    <p>IMDB_id: </p>
-                    <p>TMDB_id:    </p>
-                    <p>Возраст: </p>
+                    <p>Компания:</p>
+                    <p>IMDB_id:</p>
+                    <p>TMDB_id:</p>
+                    <p>Возраст:</p>
                    </div>
-
                     <div class="span_info">
                      <span class="genr"></span>
                      <span>${item.vote_average}</span>
@@ -125,7 +150,6 @@ function film(data) {
                      <span>${item.id}</span>
                      <span>${age_limit}</span>
                     </div>
-
                 </div>
             </div>
         </div>`
@@ -153,7 +177,7 @@ function film(data) {
         btnUp.addEventListener();
 
         let minus_vote = Math.abs(item.vote_average - 10)
-        
+
         var oilData = {
             datasets: [
                 {
@@ -165,52 +189,35 @@ function film(data) {
                     ],
                     borderWidth: 0
                 }],
-            };
-            
-            var pieChart = new Chart(canvas, {
-                type: 'doughnut',
-                data: oilData
-            });
-        }
+        };
+
+        var pieChart = new Chart(canvas, {
+            type: 'doughnut',
+            data: oilData
+        });
     }
-    
-    function product(data) {
-    console.log(data);
-    for (let item of data) {
-        center_prod.innerHTML += `
-        <div class="prod_info">
-            <div class="director">
-                <div class="dorector_img">
-                    <img src="/img/Фото.png" alt="">
-                </div>
-                <div class="director_info">
-                    <h3 class="ru_name"></h3>
-                    <h4 class="en_name">${item``}</h3>
-                    <p>Режисер</p>
-                </div>
-            </div>
-            <div class="director">
-                <div class="dorector_img">
-                    <img src="/img/Фото.png" alt="">
-                </div>
-                <div class="director_info">
-                    <h3 class="ru_name">Фрэнсис Аннан</h3>
-                    <h4 class="en_name">Francis Annan</h3>        
-                    <p>Режисер</p>
-                </div>
-            </div>
-            <div class="production">
-                <h4>Производство:</h4>
-                <p>1. Arclight Films</p>
-                <p>1. Arclight Films</p>
-                <p>1. Arclight Films</p>
-            </div>
-            <div class="production">
-                <h4>Спецэффекты:</h4>
-                <p>1. Arclight Films</p>
-                <p>1. Arclight Films</p>
-                <p>1. Arclight Films</p>
-            </div>
-        </div>`
+}
+function product(data, pl) {
+    for (let item of data.slice(0, 8)) {
+        console.log(item);
+        let persson = document.createElement('div')
+        let persson_img = document.createElement('div')
+        let persson_txt = document.createElement('h2')
+        let p = document.createElement('p')
+
+        persson.classList.add('persson')
+        persson_img.classList.add('persson_img')
+        persson_txt.classList.add('persson_txt')
+        
+        persson_img.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.profile_path        })`;
+        persson_txt.innerHTML = item.name
+        p.innerHTML = item.character
+
+        persson.onclick = () => {
+            location.assign('/pages/people.html?id=' + item.id)
+        }
+
+        pl.append(persson)
+        persson.append(persson_img, persson_txt, p)
     }
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
@@ -9,15 +10,59 @@
     <link rel="stylesheet" href="/sass/movie.scss">
     <title class="title"></title>
 </head>
+
 <body>
     <div class="vverx">
         <img src="/img/naverx.png" alt="">
     </div>
-    <div class="blur"></div>
     <div class="glav_cont">
         <header class="header"></header>
+        <div class="blur"></div>
         <div class="movie"></div>
-        <center class="center_prod"></center>
+        <center class="center_prod">
+            <div class="prod_info">
+                <div class="director">
+                    <div class="dorector_img">
+                        <img src="/img/Фото.png" alt="">
+                    </div>
+                    <div class="director_info">
+                        <h4>Режисер:</h4>
+                        <h3 class="ru_name"></h3>
+                        <h3 class="en_name"></h3>
+                    </div>
+                </div>
+                <div class="production">
+                    <h4>Производство:</h4>
+                    <p class="produserr"></p>
+                    <p class="produserr2"></p>
+                </div>
+                <div class="production">
+                    <h4>Спецэффекты:</h4>
+                    <p class="vfx"></p>
+                    <p class="vfx2"></p>
+                </div>
+                <div class="production">
+                    <h4>Art:</h4>
+                    <p class="art"></p>
+                    <p class="art2"></p>
+                </div>
+                <div class="production">
+                    <h4>Звук:</h4>
+                    <p class="sound"></p>
+                    <p class="sound2"></p>
+                </div>
+                <div class="production">
+                    <h4>Сценарий:</h4>
+                    <p class="scenario"></p>
+                    <p class="scenario2"></p>
+                </div>
+            </div>
+        </center>
+        <div class="top">
+            <h1>В гланых ролях</h1>
+            <a class="all_trailers" href="#">Все Актеры →</a>
+        </div>
+        <div class="bllock"></div>
         <div class="top">
             <h1>Трейлер фильма</h1>
             <a class="all_trailers" href="#">Все Трейлеры →</a>
@@ -56,4 +101,5 @@
     <script type="module" src="/modules/movie"></script>
     <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
+
 </html>

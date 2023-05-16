@@ -1,7 +1,8 @@
 .cont {
     margin: 40px 50px;
-position: relative;
-z-index: 1;
+    position: relative;
+    z-index: 1;
+
     .height {
         display: flex;
         justify-content: baseline;
@@ -135,84 +136,87 @@ z-index: 1;
         }
     }
 
-   .info {
-  position: relative;
-    margin-top: 45px;
-    display: flex !important;
-    margin-top: 50px;
-    gap: 100px;
-  z-index: 1;
+    .info {
+        position: relative;
+        margin-top: 45px;
+        display: flex !important;
+        margin-top: 50px;
+        gap: 100px;
+        z-index: 1;
 
-    .left_info {
-      width: 553px;
-      display: flex;
-      gap: 30px;
-      font-size: 18px;
-      line-height: 22px;
-      color: rgba(255, 255, 255, 0.9);
-      .p_info {
-        padding: 10px;
+        .left_info {
+            width: 553px;
+            display: flex;
+            gap: 30px;
+            font-size: 18px;
+            line-height: 22px;
+            color: rgba(255, 255, 255, 0.9);
 
-        p {
-          margin-top: 10px;
-          //  font-weight: 800;
+            .p_info {
+                padding: 10px;
 
-          font-size: 18px;
+                p {
+                    margin-top: 10px;
+                    //  font-weight: 800;
+
+                    font-size: 18px;
+                }
+            }
+
+            .span_info {
+                display: flex;
+                padding: 10px;
+                flex-direction: column !important;
+                text-align: start !important;
+
+                span {
+                    color: #f2f60f;
+                    margin-top: 18px;
+                    text-decoration: underline;
+                }
+            }
         }
-      }
-      .span_info {
-        display: flex;
-        padding: 10px;
-        flex-direction: column !important;
-        text-align: start !important;
 
-        span {
-          color: #f2f60f;
-          margin-top: 18px;
-          text-decoration: underline;
+        .right_info {
+            width: 553px;
+            display: flex;
+            gap: 30px;
+            font-size: 18px;
+            line-height: 22px;
+            color: rgba(255, 255, 255, 0.9);
+
+            .p_info {
+                padding: 10px;
+
+                p {
+                    margin-top: 10px;
+                    //  font-weight: 800;
+
+                    font-size: 18px;
+                }
+            }
+
+            .span_info {
+                display: flex;
+                padding: 10px;
+                flex-direction: column !important;
+                text-align: start !important;
+
+                span {
+                    color: #f2f60f;
+                    margin-top: 18px;
+                    text-decoration: underline;
+                }
+            }
         }
-      }
     }
-
-    .right_info {
-      width: 553px;
-      display: flex;
-      gap: 30px;
-      font-size: 18px;
-      line-height: 22px;
-      color: rgba(255, 255, 255, 0.9);
-
-      .p_info {
-        padding: 10px;
-
-        p {
-          margin-top: 10px;
-          //  font-weight: 800;
-
-          font-size: 18px;
-        }
-      }
-      .span_info {
-        display: flex;
-        padding: 10px;
-        flex-direction: column !important;
-        text-align: start !important;
-
-        span {
-          color: #f2f60f;
-          margin-top: 18px;
-          text-decoration: underline;
-        }
-      }
-    }
-  }
 }
 
 .prod_info {
     display: flex;
     gap: 30px;
     width: 1190px;
-    height: 325px;
+    height: 250px;
     background: rgba(54, 87, 203, 0.3);
     border-radius: 10px;
     margin-top: 47px;
@@ -227,8 +231,16 @@ z-index: 1;
             display: flex;
             flex-direction: column;
             text-align: left;
-            margin-top: 30px;
+            margin-top: 20px;
             gap: 10px;
+
+            h4 {
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 18px;
+                color: #f2f60f;
+                text-decoration: underline;
+            }
 
             .ru_name {
                 font-weight: 700;
@@ -238,10 +250,10 @@ z-index: 1;
             }
 
             .en_name {
-                font-weight: 400;
-                font-size: 18px;
-                line-height: 19px;
-                color: rgba(255, 255, 255, 0.7);
+                font-weight: 700;
+                font-size: 23px;
+                line-height: 25px;
+                color: #FFFFFF;
             }
 
             p {
@@ -256,20 +268,23 @@ z-index: 1;
     .production {
         margin-top: 2%;
         text-align: left;
+        display: flex;
+        flex-direction: column;
 
         h4 {
             font-weight: 600;
             font-size: 20px;
             line-height: 18px;
-            color: #FFFFFF;
+            color: #f2f60f;
+            text-decoration: underline;
         }
 
         p {
-            font-weight: 600;
-            font-size: 18px;
-            line-height: 30px;
-            color: #F2F60F;
-            text-decoration: underline;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 25px;
+            color: #FFFFFF;
+            margin-top: 10px;
         }
     }
 }
@@ -277,4 +292,42 @@ z-index: 1;
 .movie_trailer {
     margin-top: 50px;
     border-radius: 10px;
+}
+
+.bllock {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 50px;
+    margin-top: 20px;
+
+    .persson {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+
+        .persson_img {
+            border-radius: 10px;
+            width: 248px;
+            height: 250px;
+            background-color: #1e2538;
+            background-size: 250px;
+            background-position: 0px;
+            background-repeat: no-repeat;
+        }
+
+        .persson_txt {
+            font-weight: 700;
+            font-size: 25px;
+            line-height: 22px;
+            color: #FFFFFF;
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 19px;
+            color: #F2F60F;
+        }
+    }
 }
