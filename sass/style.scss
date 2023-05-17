@@ -1,4 +1,5 @@
 @import url("https://fonts.cdnfonts.com/css/qanelas");
+
 * {
   margin: 0px;
   padding: 0px;
@@ -10,14 +11,14 @@ body {
   background-color: #1b2133;
   background-repeat: no-repeat;
   background-size: 1400px;
-  backdrop-filter: blur(2px);
+
   .blur {
     position: absolute;
     background: linear-gradient(360deg, #1b2133 20%, transparent);
     width: 100%;
-    height: 600px;
+    height: 700px;
     margin-left: -40px;
-    margin-top: 100px;
+    margin-top: 10px;
     z-index: -1;
   }
 
@@ -52,6 +53,7 @@ p {
   width: 100%;
   padding: 30px 40px;
 }
+
 .glav_cont {
   padding: 30px 40px;
 }
@@ -69,6 +71,7 @@ header {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    user-select: none;
 
     .logo {
       &:hover {
@@ -96,6 +99,7 @@ header {
           text-decoration: none;
           color: white;
         }
+
         .active2 {
           color: #3657cb;
         }
@@ -442,10 +446,12 @@ header {
     &::-webkit-scrollbar {
       display: none;
     }
+
     .traile {
       display: flex;
       gap: 15px;
       margin-top: 20px;
+
       .trai {
         display: flex;
 
@@ -1131,7 +1137,7 @@ header {
 
 @keyframes fade {
   from {
-    opacity: -1;
+    opacity: 0;
   }
 
   to {
@@ -1176,26 +1182,24 @@ header {
 // -------------------------
 
 .profile-kart {
-  width: 1427.81px;
   margin: 0 auto;
   display: flex;
   margin-top: 50px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   gap: 10px;
-  
+
   .tab {
     width: 100px;
     height: 700px;
     margin-top: -10px;
 
 
-    .btn-prof-active{
-         width: 90px;
+    .btn-prof-active {
+      width: 90px;
       height: 90px;
       margin: 0 auto;
       margin-top: 10px;
-            background: #3657cb;
-
+      background: #3657cb;
       border-radius: 10px;
 
       img {
@@ -1218,6 +1222,7 @@ header {
         margin: 0 auto;
         padding-top: 25px;
       }
+
       &:hover {
         background: #3657cb;
       }
@@ -1225,11 +1230,12 @@ header {
   }
 
   .profile {
-    width: 1300px;
+    width: 1260px;
     background: #151c2c;
     border-radius: 10px;
     padding: 10px;
     padding-bottom: 35px;
+
     .hed {
       padding-top: 50px;
       width: 100%;
@@ -1277,17 +1283,18 @@ header {
           color: rgba(255, 255, 255, 0.8);
           background: #1e2538;
           outline: none;
-         
+
         }
-         ::-webkit-file-upload-button {
-            color: white;
-            background: #3657CB;
-;
-            padding: 20px;
-            border: none;
-            border-radius: 10px;
-            outline: none;
-          }
+
+        ::-webkit-file-upload-button {
+          color: white;
+          background: #3657CB;
+          ;
+          padding: 20px;
+          border: none;
+          border-radius: 10px;
+          outline: none;
+        }
 
         img {
           width: 470px;
@@ -1302,11 +1309,13 @@ header {
             font-weight: 800;
             font-size: 50px;
           }
+
           p {
             font-weight: 400;
             font-size: 17px;
             color: rgba(255, 255, 255, 0.8);
           }
+
           .p_info {
             p {
               margin-top: 10px;
@@ -1314,6 +1323,7 @@ header {
             }
           }
         }
+
         .user-info-sett {
           width: 90%;
           display: flex;
@@ -1334,6 +1344,7 @@ header {
 
             color: rgba(255, 255, 255, 0.6);
           }
+
           .select-input-b {
             width: 541px;
             height: 54px;
@@ -1348,11 +1359,13 @@ header {
 
             color: rgba(255, 255, 255, 0.6);
           }
+
           .drop {
             display: block;
             height: 54px !important;
             background: #1e2538;
           }
+
           textarea {
             width: 541px;
             height: 252px;
@@ -1364,6 +1377,7 @@ header {
             color: white;
           }
         }
+
         .span_info {
           display: flex;
           padding: 10px;
@@ -1375,6 +1389,7 @@ header {
             margin-top: 18px;
           }
         }
+
         input {
           width: 260px;
           height: 54px;
@@ -1396,5 +1411,5 @@ header {
 
 
 #settings_prof {
-    display: none;
+  display: none;
 }

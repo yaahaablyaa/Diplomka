@@ -75,6 +75,7 @@ function showGenres(movie, i, id, title) {
 let age_limit = ''
 function film(data) {
     for (let item of data) {
+        console.log(item);
         title.innerHTML = item.title
         if (item.adult === false) {
             age_limit = '16+'
@@ -89,6 +90,7 @@ function film(data) {
                     <img src="${import.meta.env.VITE_IMG_URL}${item.poster_path}">
                 </div>
                 <div class="right">
+                    <p class="pere">Главная > Актеры > <span>${item.title}</span></p>
                     <h1 class="movie_name">${item.title}</h1>
                     <h2 class="org_name">${item.original_title}</h2>
                     <div class="doghnut">
@@ -123,7 +125,7 @@ function film(data) {
                    </div>
                     <div class="span_info">
                       <span>${item.release_date.split('-').at(0)}</span>
-                      <span>${item.origin_country}</span>
+                      <span>${item.production_countries[0].name}</span>
                       <span>${item.tagline}</span>
                       <span>${item.runtime}мин</span>
                       <span>${item.revenue}</span>
@@ -145,7 +147,7 @@ function film(data) {
                      <span class="genr"></span>
                      <span>${item.vote_average}</span>
                      <span>${item.vote_count}</span>
-                     <span>${item.production_companies.name}</span>
+                     <span>${item.production_companies[0].name}</span>
                      <span>${item.imdb_id}</span>
                      <span>${item.id}</span>
                      <span>${age_limit}</span>
@@ -153,6 +155,7 @@ function film(data) {
                 </div>
             </div>
         </div>`
+        // console.log(item.production_countries[1].name);
         let canvas = document.querySelector('.imdb')
         let heart = document.querySelector('.heart')
 
@@ -167,7 +170,7 @@ function film(data) {
             addEventListener() {
                 btn.onclick = () => {
                     window.scrollTo({
-                        top: 1200,
+                        top: 2200,
                         left: 0,
                         behavior: 'smooth'
                     });
@@ -185,10 +188,10 @@ function film(data) {
                     data: [item.vote_average, minus_vote],
                     backgroundColor: [
                         '#89CB36',
-                        '#293d10 '
+                        '#293d10'
                     ],
                     borderWidth: 0
-                }],
+                }]
         };
 
         var pieChart = new Chart(canvas, {
@@ -199,7 +202,6 @@ function film(data) {
 }
 function product(data, pl) {
     for (let item of data.slice(0, 8)) {
-        console.log(item);
         let persson = document.createElement('div')
         let persson_img = document.createElement('div')
         let persson_txt = document.createElement('h2')
@@ -208,8 +210,8 @@ function product(data, pl) {
         persson.classList.add('persson')
         persson_img.classList.add('persson_img')
         persson_txt.classList.add('persson_txt')
-        
-        persson_img.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.profile_path        })`;
+
+        persson_img.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.profile_path})`;
         persson_txt.innerHTML = item.name
         p.innerHTML = item.character
 

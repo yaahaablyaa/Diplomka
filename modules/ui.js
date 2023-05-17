@@ -23,7 +23,6 @@ getData(`movie/now_playing`)
             movie(res.data.results.slice(4, 16), kinoCont)
             data_show.style.display = 'none'
         }
-
     })
 
 getData('movie/top_rated')
@@ -70,7 +69,7 @@ function movie(data, pl) {
         rayting.innerHTML = item.vote_average;
         kinoName.innerHTML = item.title;
         kinoType.innerHTML =
-            hoverBtn.innerHTML = "Карточка фильма";
+        hoverBtn.innerHTML = "Карточка фильма";
 
         kinocont.classList.add("kino-cont");
         kino.classList.add("kino");
@@ -189,7 +188,6 @@ export function afisha(data) {
         }
     }
 }
-console.log(upcoming);
 
 export function tv(data) {
     for (let item of data) {
