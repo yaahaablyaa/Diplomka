@@ -38,6 +38,7 @@ function person(data, pl) {
                   <p>Карьера:</p>
                   <p>Место Рождения:</p>
                   <p>Год Рождения:</p>
+                  <p>Пол:</p>
                   <p>Популярность:</p>
                   <p>IMDB_ID:</p>
                   <p>TMDB_ID:</p>
@@ -46,6 +47,7 @@ function person(data, pl) {
                   <span>${item.known_for_department}</span>
                   <span>${item.place_of_birth}</span>
                   <span>${item.birthday.split('-').at(0)} (${age} лет)</span>
+                  <span class="pol"></span>
                   <span>${item.popularity} человек</span>
                   <span>${item.imdb_id}</span>
                   <span>${item.id}</span>
@@ -62,6 +64,12 @@ function person(data, pl) {
                 <button><img  class="heart" src="/img/heart.svg"></button>
                 <p>В избранном у ${item.popularity} человек</p>
             </div>`
+    let pol = document.querySelector('.pol')
+    if (item.gender === 1) {
+      pol.innerHTML = 'Женский'
+    } else {
+      pol.innerHTML = 'Мужской'
+    }
   };
 
   let btns = document.querySelectorAll('.btns p')
@@ -169,9 +177,9 @@ const swiper = new Swiper(".persSwiper", {
   keyboard: {
     enable: true,
     onlyInViewport: true
-  }, 
+  },
   scrollbar: {
-    el: '.swiper-scrollbar', 
+    el: '.swiper-scrollbar',
     draggable: true
   },
   simulateTouch: true,

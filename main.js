@@ -52,15 +52,21 @@ function trailers(arr, place) {
         div.onclick = () => {
             getData(`movie/${item.id}/videos`).then((res) => {
                 let video = res.data.results[0];
-
-                tr.src = `https://www.youtube.com/embed/${video.key}`;
-                trai_movie_name.innerHTML = item.title
+                if (!res.data.results[0]) {
+                    trai_movie_name.innerHTML = item.title
+                    trai_movie_name.style.color = 'red'
+                    tr.style.borderColor = 'red'
+                    tr.src = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`;
+                } else {
+                    trai_movie_name.innerHTML = item.title
+                    trai_movie_name.style.color = 'white'
+                    tr.style.borderColor = 'white'
+                    tr.src = `https://www.youtube.com/embed/${video.key}`;
+                }
             });
         };
     };
 }
-
-
 
 function onChangeEvent() {
     var selectOption = document.getElementById("language-id").value;
