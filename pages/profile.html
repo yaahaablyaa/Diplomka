@@ -52,7 +52,7 @@
                     </div>
                     <div class="main">
                         <div class="left">
-                            <img id="img1" src="/img/image.svg" alt="" srcset="">
+                            <img id="img1" src="" alt="" srcset="">
                         </div>
                         <div class="right">
                             <div class="user-info">
@@ -97,7 +97,7 @@
                 <div class="cont">
                     <div class="hed">
                         <h2>Настройки профиля</h2>
-                        <div class="btn-settings">
+                        <div id="perexod" class="btn-settings">
                             <img src="/img/shapes-and-symbols 1.svg" alt="">
                             <p>Сохранить</p>
                         </div>
@@ -166,10 +166,6 @@
     </div>
     <script type="module" src="/main"></script>
     <script type="module" src="/modules/ui"></script>
-    <script type="module">
-        let user = JSON.parse(localStorage.getItem('user'))
-        document.querySelector('.userName').innerHTML = user.name
-    </script>
 </body>
 
 </html>

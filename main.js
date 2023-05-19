@@ -8,6 +8,11 @@ let trai_movie_name = document.querySelector(".trai_movie_name");
 let btns = document.querySelectorAll('.category a')
 let sbtn = document.querySelector('.btn-settings')
 let settings_prof = document.querySelector('#settings_prof')
+let g_prof = document.querySelector('#g_prof')
+let img = document.querySelector('#img');
+let img1 = document.querySelector('#img1');
+let inp = document.getElementById('input');
+let perexod = document.getElementById('perexod');
 
 
 header(head)
@@ -46,14 +51,13 @@ function trailers(arr, place) {
         div.style.backgroundImage = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`;
         div.classList.add("trai");
         h3.innerHTML = item.title
-        div.append()
         place.append(div);
 
         div.onclick = () => {
             getData(`movie/${item.id}/videos`).then((res) => {
                 let video = res.data.results[0];
                 if (!res.data.results[0]) {
-                    trai_movie_name.innerHTML = item.title
+                    trai_movie_name.innerHTML = item.title + ' ' + '(Трейлер отсутствует)'
                     trai_movie_name.style.color = 'red'
                     tr.style.borderColor = 'red'
                     tr.src = `url(${import.meta.env.VITE_IMG_URL}${item.backdrop_path})`;
@@ -67,44 +71,24 @@ function trailers(arr, place) {
         };
     };
 }
+///profile
+let user = JSON.parse(localStorage.getItem('user'))
+document.querySelector('.userName').innerHTML = user.name + ' ' + user.surname
 
-function onChangeEvent() {
-    var selectOption = document.getElementById("language-id").value;
-    var result = document.getElementById("language-label");
-    if (selectOption == "English") {
-        var english = document.getElementById("english").value;
-        result.innerHTML = english;
-    } else if (selectOption == "German") {
-        var germen = document.getElementById("german").value;
-        result.innerHTML = germen;
-    } else if (selectOption == "French") {
-        var french = document.getElementById("french").value;
-        result.innerHTML = french;
-    }
-
-}
-
-let g_prof = document.querySelector('#g_prof')
-let btn_active = document.querySelector(".btn-prof-active")
 sbtn.onclick = () => {
     settings_prof.style.display = "block"
     g_prof.style.display = "none"
 }
 
-btn_active.onclick = () => {
-    settings_prof.style.display = "none"
-    g_prof.style.display = "block"
+perexod.onclick = () => {
+    location.assign('/pages/profile.html')
 }
-let img = document.querySelector('#img');
-let img1 = document.querySelector('#img1');
-let inp = document.getElementById('input');
 
 inp.onchange = (e) => {
     if (inp.files[0]) {
         if (/^image\//.test(inp.files[0].type)) {
             img.src = URL.createObjectURL(inp.files[0]);
             img1.src = URL.createObjectURL(inp.files[0]);
-
             localStorage.setItem('image', img.src);
         } else {
             alert('Выбранный файл не является изображением!');
@@ -115,18 +99,4 @@ inp.onchange = (e) => {
 if (localStorage.getItem('image')) {
     img.src = localStorage.getItem('image');
     img1.src = localStorage.getItem('image');
-
 }
-
-const fileInput = document.getElementById("input");
-fileInput.addEventListener("change", function () {
-    const fileName = this.value.split("\\").pop();
-});
-
-btns.forEach((btn) => {
-    btn.onclick = (e) => {
-        e.preventDefault()
-        btns.forEach(el => el.classList.remove('active'))
-        btn.classList.add('active')
-    }
-})

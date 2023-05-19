@@ -48,10 +48,10 @@ getData(`movie/upcoming`)
     .then(res => upcomin(res.data.results))
 
 search_inp.oninput = () => {
-    searchData(`search/movie`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
+    searchData(`search/movie`, `&query=${search_inp.value}&include_adult=false&language=ru-RUS`)
         .then(res => searchMovie(res.data.results))
 
-    searchData(`search/person`, `&query=${search_inp.value}&page=1&include_adult=false&language=ru-RUS`)
+    searchData(`search/person`, `&query=${search_inp.value}&include_adult=false&language=ru-RUS`)
         .then(res => searchPerson(res.data.results))
 }
 

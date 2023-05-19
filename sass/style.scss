@@ -117,6 +117,7 @@ header {
       height: 52px;
       background: #fff;
       border: 1px solid #fff;
+      box-shadow: 0px 0px 20px rgba(255,255,255, 0.9);
       border-radius: 10px;
       cursor: pointer;
 
@@ -132,7 +133,7 @@ header {
       width: 138px;
       height: 53px;
       background: #3657cb;
-      box-shadow: 0px 0px 30px rgba(51, 97, 248, 0.8);
+      box-shadow: 0px 0px 20px rgba(51, 97, 248, 0.9);
       border-radius: 10px;
       border: none;
       color: white;
@@ -153,7 +154,7 @@ header {
       border-radius: 10px;
       border: none;
       background: #3657cb;
-      box-shadow: 0px 0px 15px rgba(75, 120, 255, 0.9);
+      box-shadow: 0px 0px 20px rgba(75, 120, 255, 0.9);
     }
   }
 }
@@ -1308,8 +1309,10 @@ header {
       .right {
         .user-info {
           h1 {
-            font-weight: 800;
-            font-size: 50px;
+            font-weight: 900;
+            font-size: 45px;
+            line-height: 64px;
+            color: #FFFFFF;
           }
 
           p {
