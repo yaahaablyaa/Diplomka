@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sass/style.scss">
+    <link rel="stylesheet" href="/sass/movie.scss">
+    <title class="title"></title>
+</head>
+
+<body>
+    <div class="vverx">
+        <img src="/img/naverx.png" alt="">
+    </div>
+    <div class="glav_cont">
+        <header class="header"></header>
+        <div class="blur"></div>
+        <div class="movie"></div>
+        <center class="center_prod">
+            <div class="prod_info">
+                <div class="director">
+                    <div class="dorector_img">
+                        <img src="/img/Фото.png" alt="">
+                    </div>
+                    <div class="director_info">
+                        <h4>Режисер:</h4>
+                        <h3 class="ru_name"></h3>
+                        <h3 class="en_name"></h3>
+                    </div>
+                </div>
+                <div class="production">
+                    <h4>Производство:</h4>
+                    <p class="produserr"></p>
+                    <p class="produserr2"></p>
+                </div>
+                <div class="production">
+                    <h4>Спецэффекты:</h4>
+                    <p class="vfx"></p>
+                    <p class="vfx2"></p>
+                </div>
+                <div class="production">
+                    <h4>Art:</h4>
+                    <p class="art"></p>
+                    <p class="art2"></p>
+                </div>
+                <div class="production">
+                    <h4>Звук:</h4>
+                    <p class="sound"></p>
+                    <p class="sound2"></p>
+                </div>
+                <div class="production">
+                    <h4>Сценарий:</h4>
+                    <p class="scenario"></p>
+                    <p class="scenario2"></p>
+                </div>
+            </div>
+        </center>
+        <div class="top">
+            <h1>В гланых ролях</h1>
+            <a class="all_trailers" href="#">Все Актеры →</a>
+        </div>
+        <div class="bllock"></div>
+        <div class="top">
+            <h1>Трейлер фильма</h1>
+            <a class="all_trailers" href="#">Все Трейлеры →</a>
+        </div>
+        <iframe class="movie_trailer" width="1270" height="600" title=""
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen>
+        </iframe>
+    </div>
+    <div class="modal-bg"></div>
+    <div class="modal search-modal">
+        <div class="search">
+            <div class="search-modal__input">
+                <input class="search_inp" type="text" name="name">
+                <div class="input-icons">
+                    <img src="/img/equalizer.svg" alt="equalizer">
+                    <img src="/img/input-search.svg" alt="icon-search" width="40px" height="40px" class="search">
+                </div>
+            </div>
+            <div class="close-modal">
+                <img src="/img/close.svg" alt="">
+            </div>
+        </div>
+        <div class="film-wrapper">
+            <h2>Фильмы</h2>
+            <div class="films"></div>
+        </div>
+        <div class="person-wrapper">
+            <h2>Актеры</h2>
+            <div class="person"></div>
+        </div>
+    </div>
+    <footer class="footer_cont"></footer>
+    <script type="module" src="/main"></script>
+    <script type="module" src="/modules/ui"></script>
+    <script type="module" src="/modules/movie"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.css" />
+  <link rel="stylesheet" href="/sass/style.scss">
+  <title>WePflix</title>
+</head>
+
+<body>
+  <div class="vverx">
+    <img src="/img/naverx.png" alt="">
+  </div>
+  <div class="cont_bg">
+    <header class="header"></header>
+    <div class="container">
+      <div class="top">
+        <h1>Сейчас в Кино</h1>
+        <div class="line"></div>
+        <div class="category">
+          <ul>
+            <li><a href="#">Все</a></li>
+            <li><a href="#">Боевики</a></li>
+            <li><a href="#">Приключения</a></li>
+            <li><a href="#">Комедии</a></li>
+            <li><a href="#">Фантастика</a></li>
+            <li><a href="#">Триллеры</a></li>
+            <li><a href="#">Драма</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="blur"></div>
+      <div class="kino-container"></div>
+      <center>
+        <button class="all">Показать Все</button>
+      </center>
+    </div>
+  </div>
+  <div class="glav_cont">
+    <div class="trailers">
+      <div class="top">
+        <h1>Новые Трейлеры</h1>
+        <a class="all_trailers" href="#">Все Трейлеры →</a>
+      </div>
+      <div class="trailer">
+        <iframe class="tr" src="https://www.youtube.com/embed/yKrzARVuePw" width="100%" height="600px"
+          allow="accelerometer; ; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+      <div class="trailer_bot">
+        <div class="heig">
+          <div class="left">
+            <h3 class="trai_movie_name">Аватар 2</h3>
+            <img src="/img/social.svg" alt="">
+          </div>
+          <div class="likes">
+            <button><img src="/img/like.svg" alt=""></button>
+            <button><img src="/img/dislike.svg" alt=""></button>
+          </div>
+        </div>
+        <div class="trai_items">
+          <div class="traile"></div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="top">
+        <h1>Популярные фильмы</h1>
+        <div class="line"></div>
+        <div class="category">
+          <ul>
+            <li><a href="#">Всё время</a></li>
+            <li><a href="#">2023</a></li>
+            <li><a href="#">2022</a></li>
+            <li><a href="#">2021</a></li>
+            <li><a href="#">2020</a></li>
+            <li><a href="#">2019</a></li>
+            <li><a href="#">2018</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="popul_f"></div>
+      <center><button class="popular_all">Показать остальные</button></center>
+    </div>
+    <div class="container">
+      <div class="top">
+        <h1>Популярные персоны</h1>
+      </div>
+      <div class="humans">
+        <div class="block"></div>
+        <div class="items"></div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="top">
+        <h1>Посдедние новости</h1>
+        <a href="#">Все новости →</a>
+      </div>
+      <div class="news">
+        <div class="big_news" style="background-image: url('/img/bond.png');">
+          <div class="top_txt">
+            <p>15 Апр 2020</p>
+          </div>
+          <div class="bottom_txt">
+            <h2>Не время умирать. Перенос релиза фильма</h2>
+            <p>Но действия представителей оппозиции в равной степени предоставлены сами себе. В рамках спецификации
+              современных стандартов, стремящиеся вытеснить традиционное производство, нанотехнологии указаны как
+              претенденты на роль ключевых факторов.</p>
+          </div>
+        </div>
+        <div class="smol_news">
+          <div class="smols" style="background-image: url('/img/sonik.png');">
+            <div class="smol_top_txt">
+              <p>15 Апр 2020</p>
+            </div>
+            <div class="bottomtxt">
+              <h2>Как изменили Соника с последнего анонса </h2>
+            </div>
+          </div>
+          <div class="smols" style="background-image: url('/img/duna.png');">
+            <div class="smol_top_txt">
+              <p>15 Апр 2020</p>
+            </div>
+            <div class="bottomtxt">
+              <h2>Вот это, конечно, да!</h2>
+            </div>
+          </div>
+          <div class="smols" style="background-image: url('/img/curka.png');">
+            <div class="smol_top_txt">
+              <p>15 Апр 2020</p>
+            </div>
+            <div class="bottomtxt">
+              <h2>От этой новости вы будетешокированы до завтра</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="bottom">
+    <div class="top">
+      <h1>Ожидаемые новинки</h1>
+    </div>
+    <div class="bottom_upcoming">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper"></div><br>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer_cont"></footer>
+  <div class="modal-bg"></div>
+  <div class="modal search-modal">
+    <div class="search">
+      <div class="search-modal__input">
+        <input class="search_inp" type="text" name="name">
+        <div class="input-icons">
+          <img src="/img/equalizer.svg" alt="equalizer">
+          <img src="/img/input-search.svg" alt="icon-search" width="40px" height="40px" class="search">
+        </div>
+      </div>
+      <div class="close-modal">
+        <img src="/img/close.svg" alt="">
+      </div>
+    </div>
+    <div class="wraper">
+      <div class="film-wrapper">
+        <h2>Фильмы</h2>
+        <div class="films"></div>
+      </div>
+      <div class="person-wrapper">
+        <h2>Актеры</h2>
+        <div class="person"></div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.js"></script>
+  <script type="module" src="/main"></script>
+  <script type="module" src="/modules/ui"></script>
+</body>
+
+</html>

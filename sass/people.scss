@@ -1,0 +1,167 @@
+.aktor {
+    display: flex;
+    gap: 40px;
+    padding: 40px 50px;
+
+    .person_img {
+        img {
+            width: 398px;
+            height: 597px;
+            border-radius: 10px;
+        }
+    }
+
+    .person_right {
+        .heigt {
+            display: flex;
+            flex-direction: column;
+
+            p {
+                margin-top: 5px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 168.7%;
+                color: #4F5B7C;
+
+                span {
+                    color: white;
+                }
+            }
+
+            h1 {
+                font-weight: 900;
+                font-size: 65px;
+                line-height: 83px;
+                color: #FFFFFF;
+                margin-top: 10px;
+            }
+
+            h2 {
+                font-weight: 500;
+                font-size: 25px;
+                line-height: 30px;
+                color: #FFFFFF;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .btns {
+        margin-top: 20px;
+        display: flex;
+        gap: 50px;
+
+        p {
+            font-weight: 600;
+            font-size: 19px;
+            line-height: 23px;
+            color: #6D717D;
+            cursor: pointer;
+        }
+
+        .active {
+            text-decoration: underline;
+            color: white;
+        }
+    }
+
+    .informatsion {
+        margin-top: 20px;
+        display: flex;
+        gap: 70px;
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+
+            p {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: rgba(255, 255, 255, 0.8);
+            }
+        }
+
+        .right {
+            margin-top: 5px;
+            display: flex;
+            flex-direction: column;
+            gap: 21px;
+
+            span {
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                text-decoration: underline;
+                color: #F2F60F;
+            }
+        }
+    }
+
+    .biography p {
+        margin-top: 20px;
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+    .izb {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+        align-items: center;
+
+        button {
+            width: 59px;
+            height: 59px;
+            background: #1b2133;
+            border-radius: 10px;
+            border: 1px solid #1e2538;
+
+            &:hover {
+                border: 1px solid #4bcb36;
+            }
+        }
+
+        p {
+            font-weight: 500;
+            font-size: 12px;
+            line-height: 14px;
+            color: #E8E9EB;
+        }
+    }
+}
+
+.aktor_films {
+    padding: 30px;
+}
+
+.aktor_photo {
+    padding: 30px;
+
+    .photo_block {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+
+        .photo {
+            width: 300px;
+            height: 400px;
+            background-color: #4F5B7C;
+            border-radius: 10px;
+            background-size: 100px;
+            background-repeat: repeat;
+            background-size: cover;
+        }
+    }
+}
+
+.aktor_rayting_film {
+    padding: 30px;
+}
+
+.swiper-scrollbar-drag {
+    cursor: pointer;
+    background-color: aliceblue;
+}

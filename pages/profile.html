@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/sass/style.scss">
+    <link rel="stylesheet" href="../sass/movie.scss">
+    <title>Ваш профиль</title>
+</head>
+<body>
+    <div class="vverx">
+        <img src="/img/naverx.png" alt="">
+    </div>
+    <div class="prof_cont">
+        <header class="header"></header>
+    </div>
+    <div class="profile-kart">
+        <div class="tab">
+            <div class="btn-prof-active ">
+                <img src="/img/home-run.svg" alt="" srcset="">
+            </div>
+            <div class="btn-prof">
+                <img src="/img/friend.svg" alt="" srcset="">
+            </div>
+            <div class="btn-prof">
+                <img src="/img/review 1.svg" alt="" srcset="">
+            </div>
+            <div class="btn-prof">
+                <img src="/img/review.svg" alt="" srcset="">
+            </div>
+            <div class="btn-prof">
+                <img src="/img/comment.svg" alt="" srcset="">
+            </div>
+            <div class="btn-prof">
+                <img src="/img/film.svg" alt="" srcset="">
+            </div>
+            <div class="btn-prof">
+                <img src="/img/famous.svg" alt="" srcset="">
+            </div>
+        </div>
+        <section id="g_prof">
+            <div class="profile">
+                <div class="cont">
+                    <div class="hed">
+                        <h2>Ваш профиль</h2>
+                        <div class="btn-settings">
+                            <img src="/img/settings.svg" alt="">
+                            <p>Настройки</p>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="left">
+                            <img id="img1" src="" alt="" srcset="">
+                        </div>
+                        <div class="right">
+                            <div class="user-info">
+                                <h1 class="userName"></h1>
+                                <div class="socialnetwork">
+                                    <img src="/img/social2.svg" alt="" srcset="">
+                                </div>
+                                <p>
+                                    Учитывая ключевые сценарии поведения,
+                                    базовый
+                                    вектор развития, а также свежий взгляд
+                                    на
+                                    привычные вещи - безусловно открывает
+                                    новые
+                                    горизонты для поставленных обществом
+                                    задач.
+                                </p>
+                                <div class="info">
+                                    <div class="p_info">
+                                        <p>Пол: </p>
+                                        <p>День рождения: </p>
+                                        <p>Строна: </p>
+                                        <p>Город: </p>
+                                        <p> Любимые жанры: </p>
+                                    </div>
+                                    <div class="span_info">
+                                        <span>Мужской</span>
+                                        <span>24 мая 1991 г. (28 лет)</span>
+                                        <span>Россия</span>
+                                        <span>Москва</span>
+                                        <span>Драма, триллер, документальный</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="settings_prof">
+            <div class="profile">
+                <div class="cont">
+                    <div class="hed">
+                        <h2>Настройки профиля</h2>
+                        <div id="perexod" class="btn-settings">
+                            <img src="/img/shapes-and-symbols 1.svg" alt="">
+                            <p>Сохранить</p>
+                        </div>
+                    </div>
+                    <div class="main">
+                        <div class="left">
+                            <img id="img" src="" alt="" srcset="">
+                            <input id="input" placeholder="Фото профиля:" type="file">
+                        </div>
+                        <div class="right">
+                            <div class="user-info-sett">
+                                <input type="text" placeholder="Имя">
+                                <input type="text" placeholder="Фамлия">
+                                <select name="languages" id="language-id" onchange="onChangeEvent();"
+                                    class="select-input">
+                                    <option value="German">Мужской</option>
+                                    <option value="French">Женский</option>
+                                </select>
+                                <input type="text" placeholder="Дата рождения">
+                                <select name="languages" id="g-id" onchange="onChangeEvent();" class="select-input">
+                                    <option class="drop" value="English">English</option>
+                                    <option value="Россия">Россия</option>
+                                    <option value="Uzbekistan">Uzbekistan</option>
+                                </select>
+                                <input type="text" placeholder="Город">
+                                <select name="languages" id="g-id" onchange="onChangeEvent();" class="select-input-b">
+                                    <option value="ganre">Драма, триллер, документальный</option>
+                                    <option value="ganre">Боевик</option>
+                                    <option value="ganre">Фантастика</option>
+                                    <option value="ganre">Фентези</option>
+                                    <option value="ganre">Sci-Fi</option>
+                                    <option value="ganre">Мелодрамма</option>
+                                </select>
+                                <textarea name="discription" cols="40" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer_cont"></footer>
+    <div class="modal-bg"></div>
+    <div class="modal search-modal">
+        <div class="search">
+            <div class="search-modal__input">
+                <input class="search_inp" type="text" name="name">
+                <div class="input-icons">
+                    <img src="/img/equalizer.svg" alt="equalizer">
+                    <img src="/img/input-search.svg" alt="icon-search" width="40px" height="40px" class="search">
+                </div>
+            </div>
+            <div class="close-modal">
+                <img src="/img/close.svg" alt="">
+            </div>
+        </div>
+        <div class="film-wrapper">
+            <h2>Фильмы</h2>
+            <div class="films"></div>
+        </div>
+        <div class="person-wrapper">
+            <h2>Актеры</h2>
+            <div class="person"></div>
+        </div>
+    </div>
+    <script type="module" src="/main"></script>
+    <script type="module" src="/modules/ui"></script>
+</body>
+
+</html>

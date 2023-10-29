@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" type="image/seg+xml" href="/img/kino.svg">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.css" />
+  <link rel="stylesheet" href="/sass/style.scss">
+  <link rel="stylesheet" href="/sass/people.scss">
+  <title class="pers_title"></title>
+</head>
+<body>
+  <div class="vverx">
+    <img src="/img/naverx.png" alt="">
+  </div>
+  <div class="glav_cont">
+    <header class="header"></header>
+    <div class="aktor"></div>
+    <div class="aktor_films">
+      <h1>Все Фильмы</h1>
+      <div class="swiper persSwiper">
+        <div class="swiper-wrapper"></div><br>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+    <div class="aktor_photo">
+      <h1>Фото</h1>
+      <div class="photo_block"></div>
+    </div>
+    <!-- <div class="aktor_rayting_film">
+      <h1>Рейтинг Фильмографии</h1>
+      <canvas id="line-chart"></canvas>
+    </div> -->
+  </div>
+  <footer class="footer_cont"></footer>
+  <div class="modal-bg"></div>
+  <div class="modal search-modal">
+    <div class="search">
+      <div class="search-modal__input">
+        <input class="search_inp" type="text" name="name">
+        <div class="input-icons">
+          <img src="/img/equalizer.svg" alt="equalizer">
+          <img src="/img/input-search.svg" alt="icon-search" width="40px" height="40px" class="search">
+        </div>
+      </div>
+      <div class="close-modal">
+        <img src="/img/close.svg" alt="">
+      </div>
+    </div>
+    <div class="film-wrapper">
+      <h2>Фильмы</h2>
+      <div class="films"></div>
+    </div>
+    <div class="person-wrapper">
+      <h2>Актеры</h2>
+      <div class="person"></div>
+    </div>
+  </div>
+  <script type="module" src="/main"></script>
+  <script type="module" src="/modules/ui"></script>
+  <script type="module" src="/modules/people"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.js"></script>
+</body>
+</html>
